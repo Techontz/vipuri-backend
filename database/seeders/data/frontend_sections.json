@@ -1,0 +1,524 @@
+[
+ {
+  "data_keys": "cookie.data",
+  "data_values": "{\"short_desc\":\"We may use cookies or any other tracking technologies when you visit our website, including any other media form, mobile website, or mobile application related or connected to help customize the Site and improve your experience.\",\"description\":\"<div class=\\\"cookie-data\\\">\\r\\n                        <div class=\\\"mb-5\\\">\\r\\n    <h5 class=\\\"mb-3\\\">Cookie Policy<\\/h5>\\r\\n\\r\\n<p>This Cookie Policy explains how to use cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them.<\\/p>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h5 class=\\\"mb-3\\\">What are cookies?<\\/h5>\\r\\n\\r\\n<p>Cookies are small pieces of data stored on your computer or mobile device when you visit a website. Cookies are widely used by website owners to make their websites work, or to work more efficiently, as well as to provide reporting information.<\\/p>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h5 class=\\\"mb-3\\\">Why do we use cookies?<\\/h5>\\r\\n\\r\\n<p>We use cookies for several reasons. Some cookies are required for technical reasons for our Website to operate, and we refer to these as \\\"essential\\\" or \\\"strictly necessary\\\" cookies. Other cookies enable us to track and target the interests of our users to enhance the experience on our Website. Third parties serve cookies through our Website for advertising, analytics, and other purposes.<\\/p>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h5 class=\\\"mb-3\\\">What types of cookies do we use?<\\/h5>\\r\\n\\r\\n<div>\\r\\n    <ul>\\r\\n        <li>\\r\\n            Essential Website Cookies:\\r\\n            These cookies are strictly necessary to provide you with services available through our Website and to use some of its features.\\r\\n        <\\/li>\\r\\n        <li>\\r\\n            Analytics and Performance Cookies:\\r\\n            These cookies allow us to count visits and traffic sources to measure and improve our Website's performance.\\r\\n        <\\/li>\\r\\n        <li>\\r\\n            Advertising Cookies:\\r\\n            These cookies make advertising messages more relevant to you and your interests. They perform functions like preventing the same ad from continuously reappearing, ensuring that ads are properly displayed, and in some cases selecting advertisements that are based on your interests.\\r\\n        <\\/li>\\r\\n    <\\/ul>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h5 class=\\\"mb-3\\\">Data Collected by Cookies<\\/h5>\\r\\n<p>Cookies may collect various types of data, including but not limited to:<\\/p>\\r\\n<ul>\\r\\n    <li>IP addresses<\\/li>\\r\\n    <li>Browser and device information<\\/li>\\r\\n    <li>Referring website addresses<\\/li>\\r\\n    <li>Pages visited on our website<\\/li>\\r\\n<\\/ul>\\r\\n\\r\\n<\\/div>\\r\\n\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h5 class=\\\"mb-3\\\">How We Use Collected Data<\\/h5>\\r\\n\\r\\n<p>We may use data collected by cookies for the following purposes:<\\/p>\\r\\n<ul>\\r\\n    <li>To personalize your experience on our website<\\/li>\\r\\n    <li>To improve our website's functionality and performance<\\/li>\\r\\n    <li>To analyze trends and gather demographic information about our user base<\\/li>\\r\\n    <li>To deliver targeted advertising based on your interests<\\/li>\\r\\n<\\/ul>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    \\r\\n<h5 class=\\\"mb-3\\\">Third-party cookies<\\/h5>\\r\\n\\r\\n<p>In addition to our cookies, we may also use various third-party cookies to report usage statistics of our Website, deliver advertisements on and through our Website, and so on.<\\/p>\\r\\n\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h5 class=\\\"mb-3\\\">How can we control cookies?<\\/h5>\\r\\n\\r\\n<p>You have the right to decide whether to accept or reject cookies. You can exercise your cookie preferences by clicking on the \\\"Cookie Settings\\\" link in the footer of our website. You can also set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our Website though your access to some functionality and areas of our Website may be restricted.<\\/p>\\r\\n<\\/div>\\r\\n\\r\\n<div>\\r\\n    <h5 class=\\\"mb-3\\\">Changes to our Cookie Policy<\\/h5>\\r\\n\\r\\n<p>We may update our Cookie Policy from time to time. We will notify you of any changes by posting the new Cookie Policy on this page.<\\/p>\\r\\n<\\/div>                    <\\/div>\",\"status\":1}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "maintenance.data",
+  "data_values": "{\"description\":\"<div class=\\\"mb-5\\\" style=\\\"font-family: Nunito, sans-serif; margin-bottom: 3rem !important;\\\"><h3 class=\\\"mb-3\\\" style=\\\"text-align: center; font-weight: 600; line-height: 1.3; font-size: 24px; font-family: Exo, sans-serif;\\\"><font color=\\\"#ff0000\\\">THE SITE IS UNDER MAINTENANCE<\\/font><\\/h3><p class=\\\"font-18\\\" style=\\\"color: rgb(111, 111, 111); text-align: center; margin-right: 0px; margin-left: 0px; font-size: 18px !important;\\\">We're just tuning up a few things.We apologize for the inconvenience but Front is currently undergoing planned maintenance. Thanks for your patience.<\\/p><\\/div>\",\"image\":\"6603c203472ad1711522307.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "kyc.content",
+  "data_values": "{\"required\":\"Complete KYC to unlock the full potential of our platform! KYC helps us verify your identity and keep things secure. It is quick and easy just follow the on-screen instructions. Get started with KYC verification now!\",\"pending\":\"Your KYC verification is being reviewed. We might need some additional information. You will get an email update soon. In the meantime, explore our platform with limited features.\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "kyc.content",
+  "data_values": "{\"required\":\"Complete KYC to unlock the full potential of our platform! KYC helps us verify your identity and keep things secure. It is quick and easy just follow the on-screen instructions. Get started with KYC verification now!\",\"pending\":\"Your KYC verification is being reviewed. We might need some additional information. You will get an email update soon. In the meantime, explore our platform with limited features.\",\"reject\":\"We regret to inform you that the Know Your Customer (KYC) information provided has been reviewed and unfortunately, it has not met our verification standards.\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "register_disable.content",
+  "data_values": "{\"has_image\":\"1\",\"heading\":\"Registration Currently Disabled\",\"subheading\":\"Page you are looking for doesn't exit or an other error occurred or temporarily unavailable.\",\"button_name\":\"Go to Home\",\"button_url\":\"#\",\"image\":\"6909f956d93a41762261334.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "social_icon.element",
+  "data_values": "{\"title\":\"Instagram\",\"social_icon\":\"<i class=\\\"lab la-instagram\\\"><\\/i>\",\"url\":\"https:\\/\\/www.instagram.com\\/\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "social_icon.element",
+  "data_values": "{\"title\":\"Twitter\",\"social_icon\":\"<i class=\\\"icon-20\\\"><\\/i>\",\"url\":\"https:\\/\\/x.com\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "social_icon.element",
+  "data_values": "{\"title\":\"Linkedin\",\"social_icon\":\"<i class=\\\"icon-19\\\"><\\/i>\",\"url\":\"https:\\/\\/www.linkedin.com\\/\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "social_icon.element",
+  "data_values": "{\"title\":\"Facebook\",\"social_icon\":\"<i class=\\\"icon-18\\\"><\\/i>\",\"url\":\"https:\\/\\/www.facebook.com\\/\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "policy_pages.element",
+  "data_values": "{\"title\":\"Return Policy\",\"details\":\"<div class=\\\"policy-data\\\">\\r\\n                        <div class=\\\"mb-5\\\">\\r\\n    <h5 class=\\\"mb-3\\\">Introduction<\\/h5>\\r\\n        <p>\\r\\n            This Privacy Policy describes how we collect, use, and disclose information, including personal information, in connection with your use of our website, services, features, mobile applications, communications, and related online tools. It also explains your rights, choices, data protection measures, and how we ensure transparency, security, and compliance with applicable privacy laws and regulations across all our digital platforms.\\r\\n        <\\/p>\\r\\n<\\/div>\\r\\n\\r\\n        <div class=\\\"mb-5\\\">\\r\\n            <h5 class=\\\"mb-3\\\">Information We Collect<\\/h5>\\r\\n        <p>We collect two main types of information on the Website:<\\/p>\\r\\n        <ul>\\r\\n            <li><p>Personal Information: This includes data that can identify you as an individual, such as your name, email address, phone number, or mailing address. We only collect this information when you voluntarily provide it to us, like signing up for a newsletter, contacting us through a form, or making a purchase.<\\/p><\\/li>\\r\\n            <li><p>Non-Personal Information: This data cannot be used to identify you directly. It includes details like your browser type, device type, operating system, IP address, browsing activity, and usage statistics. We collect this information automatically through cookies and other tracking technologies.<\\/p><\\/li>\\r\\n        <\\/ul>\\r\\n        <\\/div>\\r\\n\\r\\n        <div class=\\\"mb-5\\\">\\r\\n            <h5 class=\\\"mb-3\\\">How We Use Information<\\/h5>\\r\\n        <p>The information we collect allows us to:<\\/p>\\r\\n        <ul>\\r\\n            <li>Operate and maintain the Website effectively.<\\/li>\\r\\n            <li>Send you newsletters or marketing communications, but only with your consent.<\\/li>\\r\\n            <li>Respond to your inquiries and fulfill your requests.<\\/li>\\r\\n            <li>Improve the Website and your user experience.<\\/li>\\r\\n        <\\/ul>\\r\\n        <\\/div>\\r\\n\\r\\n       <div class=\\\"mb-5\\\">\\r\\n         <h5 class=\\\"mb-3\\\">Sharing of Information<\\/h5>\\r\\n        <p>We may share your information with trusted third-party service providers who assist us in operating the Website and delivering our services. These providers are obligated by contract to keep your information confidential and use it only for the specific purposes we disclose it for.<\\/p>\\r\\n        <p>We will never share your personal information with any third parties for marketing purposes without your explicit consent.<\\/p>\\r\\n       <\\/div>\\r\\n\\r\\n        <div class=\\\"mb-5\\\">\\r\\n            <h5 class=\\\"mb-3\\\">Data Retention<\\/h5>\\r\\n        <p>We retain your personal information only for as long as necessary to fulfill the purposes it was collected for. We may retain it for longer periods only if required or permitted by law, to resolve disputes, enforce our agreements, maintain security, or comply with legal, regulatory, and business continuity obligations.<\\/p>\\r\\n        <\\/div>\\r\\n\\r\\n      <div class=\\\"mb-5\\\">\\r\\n          <h5 class=\\\"mb-3\\\">Security Measures<\\/h5>\\r\\n        <p>We take reasonable precautions to protect your information from unauthorized access, disclosure, alteration, or destruction. However, complete security cannot be guaranteed for any website or internet transmission.<\\/p>\\r\\n\\r\\n      <\\/div>\\r\\n\\r\\n      <div>\\r\\n        <h5 class=\\\"mb-3\\\">Changes to this Privacy Policy<\\/h5>\\r\\n        <p>We may update this Privacy Policy periodically. We will notify you of any changes by posting the revised policy on the Website. We recommend reviewing this policy regularly to stay informed of any updates. This is a sample policy and may need adjustments to comply with specific laws and reflect your website's unique data practices. Consider consulting with a legal professional to ensure your policy is fully compliant.<\\/p>\\r\\n      <\\/div>                    <\\/div>\"}",
+  "seo_content": null,
+  "slug": "return-policy"
+ },
+ {
+  "data_keys": "policy_pages.element",
+  "data_values": "{\"title\":\"Terms of Service\",\"details\":\"<div class=\\\"policy-data\\\">\\r\\n                        <div class=\\\"mb-5\\\">\\r\\n    <h5 class=\\\"mb-3\\\">Introduction<\\/h5>\\r\\n        <p>\\r\\n            This Privacy Policy describes how we collect, use, and disclose information, including personal information, in connection with your use of our website, services, features, mobile applications, communications, and related online tools. It also explains your rights, choices, data protection measures, and how we ensure transparency, security, and compliance with applicable privacy laws and regulations across all our digital platforms.\\r\\n        <\\/p>\\r\\n<\\/div>\\r\\n\\r\\n        <div class=\\\"mb-5\\\">\\r\\n            <h5 class=\\\"mb-3\\\">Information We Collect<\\/h5>\\r\\n        <p>We collect two main types of information on the Website:<\\/p>\\r\\n        <ul>\\r\\n            <li><p>Personal Information: This includes data that can identify you as an individual, such as your name, email address, phone number, or mailing address. We only collect this information when you voluntarily provide it to us, like signing up for a newsletter, contacting us through a form, or making a purchase.<\\/p><\\/li>\\r\\n            <li><p>Non-Personal Information: This data cannot be used to identify you directly. It includes details like your browser type, device type, operating system, IP address, browsing activity, and usage statistics. We collect this information automatically through cookies and other tracking technologies.<\\/p><\\/li>\\r\\n        <\\/ul>\\r\\n        <\\/div>\\r\\n\\r\\n        <div class=\\\"mb-5\\\">\\r\\n            <h5 class=\\\"mb-3\\\">How We Use Information<\\/h5>\\r\\n        <p>The information we collect allows us to:<\\/p>\\r\\n        <ul>\\r\\n            <li>Operate and maintain the Website effectively.<\\/li>\\r\\n            <li>Send you newsletters or marketing communications, but only with your consent.<\\/li>\\r\\n            <li>Respond to your inquiries and fulfill your requests.<\\/li>\\r\\n            <li>Improve the Website and your user experience.<\\/li>\\r\\n        <\\/ul>\\r\\n        <\\/div>\\r\\n\\r\\n       <div class=\\\"mb-5\\\">\\r\\n         <h5 class=\\\"mb-3\\\">Sharing of Information<\\/h5>\\r\\n        <p>We may share your information with trusted third-party service providers who assist us in operating the Website and delivering our services. These providers are obligated by contract to keep your information confidential and use it only for the specific purposes we disclose it for.<\\/p>\\r\\n        <p>We will never share your personal information with any third parties for marketing purposes without your explicit consent.<\\/p>\\r\\n       <\\/div>\\r\\n\\r\\n        <div class=\\\"mb-5\\\">\\r\\n            <h5 class=\\\"mb-3\\\">Data Retention<\\/h5>\\r\\n        <p>We retain your personal information only for as long as necessary to fulfill the purposes it was collected for. We may retain it for longer periods only if required or permitted by law, to resolve disputes, enforce our agreements, maintain security, or comply with legal, regulatory, and business continuity obligations.<\\/p>\\r\\n        <\\/div>\\r\\n\\r\\n      <div class=\\\"mb-5\\\">\\r\\n          <h5 class=\\\"mb-3\\\">Security Measures<\\/h5>\\r\\n        <p>We take reasonable precautions to protect your information from unauthorized access, disclosure, alteration, or destruction. However, complete security cannot be guaranteed for any website or internet transmission.<\\/p>\\r\\n\\r\\n      <\\/div>\\r\\n\\r\\n      <div>\\r\\n        <h5 class=\\\"mb-3\\\">Changes to this Privacy Policy<\\/h5>\\r\\n        <p>We may update this Privacy Policy periodically. We will notify you of any changes by posting the revised policy on the Website. We recommend reviewing this policy regularly to stay informed of any updates. This is a sample policy and may need adjustments to comply with specific laws and reflect your website's unique data practices. Consider consulting with a legal professional to ensure your policy is fully compliant.<\\/p>\\r\\n      <\\/div>                    <\\/div>\"}",
+  "seo_content": null,
+  "slug": "terms-of-service"
+ },
+ {
+  "data_keys": "policy_pages.element",
+  "data_values": "{\"title\":\"Privacy Policy\",\"details\":\"<div class=\\\"policy-data\\\">\\r\\n                        <div class=\\\"mb-5\\\">\\r\\n    <h5 class=\\\"mb-3\\\">Introduction<\\/h5>\\r\\n        <p>\\r\\n            This Privacy Policy describes how we collect, use, and disclose information, including personal information, in connection with your use of our website, services, features, mobile applications, communications, and related online tools. It also explains your rights, choices, data protection measures, and how we ensure transparency, security, and compliance with applicable privacy laws and regulations across all our digital platforms.\\r\\n        <\\/p>\\r\\n<\\/div>\\r\\n\\r\\n        <div class=\\\"mb-5\\\">\\r\\n            <h5 class=\\\"mb-3\\\">Information We Collect<\\/h5>\\r\\n        <p>We collect two main types of information on the Website:<\\/p>\\r\\n        <ul>\\r\\n            <li><p>Personal Information: This includes data that can identify you as an individual, such as your name, email address, phone number, or mailing address. We only collect this information when you voluntarily provide it to us, like signing up for a newsletter, contacting us through a form, or making a purchase.<\\/p><\\/li>\\r\\n            <li><p>Non-Personal Information: This data cannot be used to identify you directly. It includes details like your browser type, device type, operating system, IP address, browsing activity, and usage statistics. We collect this information automatically through cookies and other tracking technologies.<\\/p><\\/li>\\r\\n        <\\/ul>\\r\\n        <\\/div>\\r\\n\\r\\n        <div class=\\\"mb-5\\\">\\r\\n            <h5 class=\\\"mb-3\\\">How We Use Information<\\/h5>\\r\\n        <p>The information we collect allows us to:<\\/p>\\r\\n        <ul>\\r\\n            <li>Operate and maintain the Website effectively.<\\/li>\\r\\n            <li>Send you newsletters or marketing communications, but only with your consent.<\\/li>\\r\\n            <li>Respond to your inquiries and fulfill your requests.<\\/li>\\r\\n            <li>Improve the Website and your user experience.<\\/li>\\r\\n        <\\/ul>\\r\\n        <\\/div>\\r\\n\\r\\n       <div class=\\\"mb-5\\\">\\r\\n         <h5 class=\\\"mb-3\\\">Sharing of Information<\\/h5>\\r\\n        <p>We may share your information with trusted third-party service providers who assist us in operating the Website and delivering our services. These providers are obligated by contract to keep your information confidential and use it only for the specific purposes we disclose it for.<\\/p>\\r\\n        <p>We will never share your personal information with any third parties for marketing purposes without your explicit consent.<\\/p>\\r\\n       <\\/div>\\r\\n\\r\\n        <div class=\\\"mb-5\\\">\\r\\n            <h5 class=\\\"mb-3\\\">Data Retention<\\/h5>\\r\\n        <p>We retain your personal information only for as long as necessary to fulfill the purposes it was collected for. We may retain it for longer periods only if required or permitted by law, to resolve disputes, enforce our agreements, maintain security, or comply with legal, regulatory, and business continuity obligations.<\\/p>\\r\\n        <\\/div>\\r\\n\\r\\n      <div class=\\\"mb-5\\\">\\r\\n          <h5 class=\\\"mb-3\\\">Security Measures<\\/h5>\\r\\n        <p>We take reasonable precautions to protect your information from unauthorized access, disclosure, alteration, or destruction. However, complete security cannot be guaranteed for any website or internet transmission.<\\/p>\\r\\n\\r\\n      <\\/div>\\r\\n\\r\\n      <div>\\r\\n        <h5 class=\\\"mb-3\\\">Changes to this Privacy Policy<\\/h5>\\r\\n        <p>We may update this Privacy Policy periodically. We will notify you of any changes by posting the revised policy on the Website. We recommend reviewing this policy regularly to stay informed of any updates. This is a sample policy and may need adjustments to comply with specific laws and reflect your website's unique data practices. Consider consulting with a legal professional to ensure your policy is fully compliant.<\\/p>\\r\\n      <\\/div>                    <\\/div>\"}",
+  "seo_content": null,
+  "slug": "privacy-policy"
+ },
+ {
+  "data_keys": "blog.content",
+  "data_values": "{\"tag\":\"Stay Updated\",\"title\":\"Latest News\",\"button\":\"View All Blogs\",\"button_url\":\"blogs\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "banner.element",
+  "data_values": "{\"has_image\":[\"1\"],\"tag\":\"Style Meets Performance\",\"heading\":\"AUTO CAR MODE ACCESSORIES HEAR\",\"highlight_position\":\"1,2\",\"short_description\":\"It is a long established fact that a reader will be distracted by the content of a page when looking at its layout.\",\"button_text\":\"Shop Now\",\"click_url\":\"products\",\"image\":\"69fc98cf352051778161871.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "banner.element",
+  "data_values": "{\"has_image\":[\"1\"],\"tag\":\"Upgrade Your Ride\",\"heading\":\"TREND NEW CAR PARTS HERE\",\"highlight_position\":\"1,2\",\"short_description\":\"It is a long established fact that a reader will be distracted by the content of a page when looking at its layout.\",\"button_text\":\"Shop Now\",\"click_url\":\"products\",\"image\":\"69fc98c61ed2d1778161862.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "popular_categories.content",
+  "data_values": "{\"tag\":\"Browse Best\",\"title\":\"Popular Categories\",\"button\":\"VIew All Categories\",\"button_url\":\"all-category\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "blog.element",
+  "data_values": "{\"has_image\":[\"1\"],\"title\":\"Signs Your Car Needs New Air Filters and Why It Matters\",\"description\":\"<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">The Reactive Model of Service Centers: Addressing Issues After They\\r\\n        Arise<\\/h6>\\r\\n    <div>The landscape of service center automation has undergone a remarkable\\r\\n        transformation over the past few decades, shifting from reactive to proactive\\r\\n        approaches. Initially, service centers operated on a reactive model, primarily\\r\\n        addressing issues only after they arose. This method often involved responding\\r\\n        to customer complaints and troubleshooting problems as they emerged, leading to\\r\\n        higher levels of downtime and customer dissatisfaction. The focus was largely on\\r\\n        fixing problems rather than preventing them, which created a cycle of continuous\\r\\n        reaction to service issues.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<blockquote class=\\\"mb-5\\\" style=\\\"background-color:#ffeedd;font-style:italic;text-align:center;padding:20px;font-size:18px;border-left:4px solid #ffc387;\\\">\\r\\n    Aenean metus lectus at id. Morbi aliquet commodo a sodales eget. Eu justo ante nibh\\r\\n    et a turpis, aliquam phasellus hymenaeos, imperdiet eget cras sociosqu, tincidunt a\\r\\n    amet. Faucibus urna luctus, arcu ni<\\/blockquote>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">Shifting Paradigms: The Move Toward Proactive Service Models<\\/h6>\\r\\n    <div>As technology advanced, the paradigm began to shift towards a more proactive\\r\\n        approach. The rise of advanced data analytics and machine learning techniques\\r\\n        enabled service centers to anticipate potential issues before they occurred. By\\r\\n        analyzing historical data and recognizing patterns, service centers could now\\r\\n        predict when equipment might fail or when a system could encounter problems.\\r\\n        This shift not only reduced the frequency of unexpected disruptions but also\\r\\n        improved overall operational efficiency. Predictive maintenance became a key\\r\\n        feature of proactive service centers, allowing them to schedule maintenance\\r\\n        activities during non-peak hours and address issues before they impacted the\\r\\n        customer experience.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">Harnessing Data Analytics and Machine Learning for Predictive\\r\\n        Maintenance<\\/h6>\\r\\n    <div>This evolution was further accelerated by the integration of artificial\\r\\n        intelligence (AI) and automation tools. AI-driven systems can now monitor and\\r\\n        analyze real-time data from various sources, providing insights into potential\\r\\n        issues and suggesting preventive measures. Automation tools facilitate swift\\r\\n        responses to identified issues, often without the need for human intervention.\\r\\n        For instance, automated systems can initiate repairs or adjustments based on\\r\\n        predefined parameters, ensuring that minor issues are resolved before they\\r\\n        escalate into significant problems.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">The Role of AI and Automation in Revolutionizing Service Center\\r\\n        Operations<\\/h6>\\r\\n    <div>The proactive approach not only enhances operational efficiency but also\\r\\n        fosters a more positive customer experience. By addressing potential issues\\r\\n        before they impact customers, service centers can ensure a higher level of\\r\\n        service continuity and reliability. Customers benefit from fewer disruptions and\\r\\n        a more streamlined experience, leading to increased satisfaction and loyalty.\\r\\n    <\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div>\\r\\n    <h6 class=\\\"mb-2\\\">Enhancing Customer Experience Through Proactive Service Strategies\\r\\n    <\\/h6>\\r\\n    <div>In essence, the evolution from a reactive to a proactive model in service\\r\\n        center automation represents a significant leap forward. It highlights the\\r\\n        importance of leveraging advanced technologies to not only address problems but\\r\\n        to anticipate and prevent them, ultimately leading to a more efficient and\\r\\n        customer-centric operation. As technology continues to evolve, service centers\\r\\n        will likely see even more sophisticated solutions that further enhance their\\r\\n        ability to provide seamless and proactive service.<\\/div>\\r\\n<\\/div>\",\"image\":\"69c92f656cb921774792549.png\"}",
+  "seo_content": null,
+  "slug": "signs-your-car-needs-new-air-filters-and-why-it-matters"
+ },
+ {
+  "data_keys": "blog.element",
+  "data_values": "{\"has_image\":[\"1\"],\"title\":\"Upgrade Your Ride: Best Performance Parts for Cars\",\"description\":\"<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">The Reactive Model of Service Centers: Addressing Issues After They\\r\\n        Arise<\\/h6>\\r\\n    <div>The landscape of service center automation has undergone a remarkable\\r\\n        transformation over the past few decades, shifting from reactive to proactive\\r\\n        approaches. Initially, service centers operated on a reactive model, primarily\\r\\n        addressing issues only after they arose. This method often involved responding\\r\\n        to customer complaints and troubleshooting problems as they emerged, leading to\\r\\n        higher levels of downtime and customer dissatisfaction. The focus was largely on\\r\\n        fixing problems rather than preventing them, which created a cycle of continuous\\r\\n        reaction to service issues.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<blockquote class=\\\"mb-5\\\" style=\\\"background-color:#ffeedd;font-style:italic;text-align:center;padding:20px;font-size:18px;border-left:4px solid #ffc387;\\\">\\r\\n    Aenean metus lectus at id. Morbi aliquet commodo a sodales eget. Eu justo ante nibh\\r\\n    et a turpis, aliquam phasellus hymenaeos, imperdiet eget cras sociosqu, tincidunt a\\r\\n    amet. Faucibus urna luctus, arcu ni<\\/blockquote>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">Shifting Paradigms: The Move Toward Proactive Service Models<\\/h6>\\r\\n    <div>As technology advanced, the paradigm began to shift towards a more proactive\\r\\n        approach. The rise of advanced data analytics and machine learning techniques\\r\\n        enabled service centers to anticipate potential issues before they occurred. By\\r\\n        analyzing historical data and recognizing patterns, service centers could now\\r\\n        predict when equipment might fail or when a system could encounter problems.\\r\\n        This shift not only reduced the frequency of unexpected disruptions but also\\r\\n        improved overall operational efficiency. Predictive maintenance became a key\\r\\n        feature of proactive service centers, allowing them to schedule maintenance\\r\\n        activities during non-peak hours and address issues before they impacted the\\r\\n        customer experience.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">Harnessing Data Analytics and Machine Learning for Predictive\\r\\n        Maintenance<\\/h6>\\r\\n    <div>This evolution was further accelerated by the integration of artificial\\r\\n        intelligence (AI) and automation tools. AI-driven systems can now monitor and\\r\\n        analyze real-time data from various sources, providing insights into potential\\r\\n        issues and suggesting preventive measures. Automation tools facilitate swift\\r\\n        responses to identified issues, often without the need for human intervention.\\r\\n        For instance, automated systems can initiate repairs or adjustments based on\\r\\n        predefined parameters, ensuring that minor issues are resolved before they\\r\\n        escalate into significant problems.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">The Role of AI and Automation in Revolutionizing Service Center\\r\\n        Operations<\\/h6>\\r\\n    <div>The proactive approach not only enhances operational efficiency but also\\r\\n        fosters a more positive customer experience. By addressing potential issues\\r\\n        before they impact customers, service centers can ensure a higher level of\\r\\n        service continuity and reliability. Customers benefit from fewer disruptions and\\r\\n        a more streamlined experience, leading to increased satisfaction and loyalty.\\r\\n    <\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div>\\r\\n    <h6 class=\\\"mb-2\\\">Enhancing Customer Experience Through Proactive Service Strategies\\r\\n    <\\/h6>\\r\\n    <div>In essence, the evolution from a reactive to a proactive model in service\\r\\n        center automation represents a significant leap forward. It highlights the\\r\\n        importance of leveraging advanced technologies to not only address problems but\\r\\n        to anticipate and prevent them, ultimately leading to a more efficient and\\r\\n        customer-centric operation. As technology continues to evolve, service centers\\r\\n        will likely see even more sophisticated solutions that further enhance their\\r\\n        ability to provide seamless and proactive service.<\\/div>\\r\\n<\\/div>\",\"image\":\"69c92f54170af1774792532.png\"}",
+  "seo_content": null,
+  "slug": "upgrade-your-ride-best-performance-parts-for-cars"
+ },
+ {
+  "data_keys": "blog.element",
+  "data_values": "{\"has_image\":[\"1\"],\"title\":\"Car Battery Buying Guide: What You Need to Know\",\"description\":\"<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">The Reactive Model of Service Centers: Addressing Issues After They\\r\\n        Arise<\\/h6>\\r\\n    <div>The landscape of service center automation has undergone a remarkable\\r\\n        transformation over the past few decades, shifting from reactive to proactive\\r\\n        approaches. Initially, service centers operated on a reactive model, primarily\\r\\n        addressing issues only after they arose. This method often involved responding\\r\\n        to customer complaints and troubleshooting problems as they emerged, leading to\\r\\n        higher levels of downtime and customer dissatisfaction. The focus was largely on\\r\\n        fixing problems rather than preventing them, which created a cycle of continuous\\r\\n        reaction to service issues.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<blockquote class=\\\"mb-5\\\" style=\\\"background-color:#ffeedd;font-style:italic;text-align:center;padding:20px;font-size:18px;border-left:4px solid #ffc387;\\\">\\r\\n    Aenean metus lectus at id. Morbi aliquet commodo a sodales eget. Eu justo ante nibh\\r\\n    et a turpis, aliquam phasellus hymenaeos, imperdiet eget cras sociosqu, tincidunt a\\r\\n    amet. Faucibus urna luctus, arcu ni<\\/blockquote>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">Shifting Paradigms: The Move Toward Proactive Service Models<\\/h6>\\r\\n    <div>As technology advanced, the paradigm began to shift towards a more proactive\\r\\n        approach. The rise of advanced data analytics and machine learning techniques\\r\\n        enabled service centers to anticipate potential issues before they occurred. By\\r\\n        analyzing historical data and recognizing patterns, service centers could now\\r\\n        predict when equipment might fail or when a system could encounter problems.\\r\\n        This shift not only reduced the frequency of unexpected disruptions but also\\r\\n        improved overall operational efficiency. Predictive maintenance became a key\\r\\n        feature of proactive service centers, allowing them to schedule maintenance\\r\\n        activities during non-peak hours and address issues before they impacted the\\r\\n        customer experience.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">Harnessing Data Analytics and Machine Learning for Predictive\\r\\n        Maintenance<\\/h6>\\r\\n    <div>This evolution was further accelerated by the integration of artificial\\r\\n        intelligence (AI) and automation tools. AI-driven systems can now monitor and\\r\\n        analyze real-time data from various sources, providing insights into potential\\r\\n        issues and suggesting preventive measures. Automation tools facilitate swift\\r\\n        responses to identified issues, often without the need for human intervention.\\r\\n        For instance, automated systems can initiate repairs or adjustments based on\\r\\n        predefined parameters, ensuring that minor issues are resolved before they\\r\\n        escalate into significant problems.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">The Role of AI and Automation in Revolutionizing Service Center\\r\\n        Operations<\\/h6>\\r\\n    <div>The proactive approach not only enhances operational efficiency but also\\r\\n        fosters a more positive customer experience. By addressing potential issues\\r\\n        before they impact customers, service centers can ensure a higher level of\\r\\n        service continuity and reliability. Customers benefit from fewer disruptions and\\r\\n        a more streamlined experience, leading to increased satisfaction and loyalty.\\r\\n    <\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div>\\r\\n    <h6 class=\\\"mb-2\\\">Enhancing Customer Experience Through Proactive Service Strategies\\r\\n    <\\/h6>\\r\\n    <div>In essence, the evolution from a reactive to a proactive model in service\\r\\n        center automation represents a significant leap forward. It highlights the\\r\\n        importance of leveraging advanced technologies to not only address problems but\\r\\n        to anticipate and prevent them, ultimately leading to a more efficient and\\r\\n        customer-centric operation. As technology continues to evolve, service centers\\r\\n        will likely see even more sophisticated solutions that further enhance their\\r\\n        ability to provide seamless and proactive service.<\\/div>\\r\\n<\\/div>\",\"image\":\"69c92f44a355e1774792516.png\"}",
+  "seo_content": null,
+  "slug": "car-battery-buying-guide-what-you-need-to-know"
+ },
+ {
+  "data_keys": "blog.element",
+  "data_values": "{\"has_image\":[\"1\"],\"title\":\"Common Car Parts That Need Regular Replacement\",\"description\":\"<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">The Reactive Model of Service Centers: Addressing Issues After They\\r\\n        Arise<\\/h6>\\r\\n    <div>The landscape of service center automation has undergone a remarkable\\r\\n        transformation over the past few decades, shifting from reactive to proactive\\r\\n        approaches. Initially, service centers operated on a reactive model, primarily\\r\\n        addressing issues only after they arose. This method often involved responding\\r\\n        to customer complaints and troubleshooting problems as they emerged, leading to\\r\\n        higher levels of downtime and customer dissatisfaction. The focus was largely on\\r\\n        fixing problems rather than preventing them, which created a cycle of continuous\\r\\n        reaction to service issues.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<blockquote class=\\\"mb-5\\\" style=\\\"background-color:#ffeedd;font-style:italic;text-align:center;padding:20px;font-size:18px;border-left:4px solid #ffc387;\\\">\\r\\n    Aenean metus lectus at id. Morbi aliquet commodo a sodales eget. Eu justo ante nibh\\r\\n    et a turpis, aliquam phasellus hymenaeos, imperdiet eget cras sociosqu, tincidunt a\\r\\n    amet. Faucibus urna luctus, arcu ni<\\/blockquote>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">Shifting Paradigms: The Move Toward Proactive Service Models<\\/h6>\\r\\n    <div>As technology advanced, the paradigm began to shift towards a more proactive\\r\\n        approach. The rise of advanced data analytics and machine learning techniques\\r\\n        enabled service centers to anticipate potential issues before they occurred. By\\r\\n        analyzing historical data and recognizing patterns, service centers could now\\r\\n        predict when equipment might fail or when a system could encounter problems.\\r\\n        This shift not only reduced the frequency of unexpected disruptions but also\\r\\n        improved overall operational efficiency. Predictive maintenance became a key\\r\\n        feature of proactive service centers, allowing them to schedule maintenance\\r\\n        activities during non-peak hours and address issues before they impacted the\\r\\n        customer experience.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">Harnessing Data Analytics and Machine Learning for Predictive\\r\\n        Maintenance<\\/h6>\\r\\n    <div>This evolution was further accelerated by the integration of artificial\\r\\n        intelligence (AI) and automation tools. AI-driven systems can now monitor and\\r\\n        analyze real-time data from various sources, providing insights into potential\\r\\n        issues and suggesting preventive measures. Automation tools facilitate swift\\r\\n        responses to identified issues, often without the need for human intervention.\\r\\n        For instance, automated systems can initiate repairs or adjustments based on\\r\\n        predefined parameters, ensuring that minor issues are resolved before they\\r\\n        escalate into significant problems.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">The Role of AI and Automation in Revolutionizing Service Center\\r\\n        Operations<\\/h6>\\r\\n    <div>The proactive approach not only enhances operational efficiency but also\\r\\n        fosters a more positive customer experience. By addressing potential issues\\r\\n        before they impact customers, service centers can ensure a higher level of\\r\\n        service continuity and reliability. Customers benefit from fewer disruptions and\\r\\n        a more streamlined experience, leading to increased satisfaction and loyalty.\\r\\n    <\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div>\\r\\n    <h6 class=\\\"mb-2\\\">Enhancing Customer Experience Through Proactive Service Strategies\\r\\n    <\\/h6>\\r\\n    <div>In essence, the evolution from a reactive to a proactive model in service\\r\\n        center automation represents a significant leap forward. It highlights the\\r\\n        importance of leveraging advanced technologies to not only address problems but\\r\\n        to anticipate and prevent them, ultimately leading to a more efficient and\\r\\n        customer-centric operation. As technology continues to evolve, service centers\\r\\n        will likely see even more sophisticated solutions that further enhance their\\r\\n        ability to provide seamless and proactive service.<\\/div>\\r\\n<\\/div>\",\"image\":\"69c92f37327bd1774792503.png\"}",
+  "seo_content": null,
+  "slug": "common-car-parts-that-need-regular-replacement"
+ },
+ {
+  "data_keys": "popular_product.content",
+  "data_values": "{\"has_image\":\"1\",\"tag\":\"Car Wheel\",\"title\":\"Top Selling Product\",\"heading\":\"Buy the Grills\",\"button_text\":\"View All\",\"click_url\":\"products\",\"image\":\"69b78cd799f6b1773636823.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "brand.content",
+  "data_values": "{\"tag\":\"Top Brands\",\"title\":\"Shop by Brands\",\"page_tag\":\"All brands\",\"page_title\":\"Explore Brands\",\"button\":\"View All Brands\",\"button_url\":\"products\\/brands\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "app.content",
+  "data_values": "{\"has_image\":\"1\",\"title\":\"Download Mobile App for your device\",\"subtitle\":\"Make sure to download apps only from official app stores to ensure the security of your device.\",\"background_image\":\"69c7773b914471774679867.jpg\",\"side_image\":\"69b3b5d93b39d1773385177.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "app.element",
+  "data_values": "{\"icon\":\"<i class=\\\"fab fa-google-play\\\"><\\/i>\",\"title\":\"Download on\",\"subtitle\":\"Google Play\",\"click_url\":\"#\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "app.element",
+  "data_values": "{\"icon\":\"<i class=\\\"fab fa-apple\\\"><\\/i>\",\"title\":\"Download On\",\"subtitle\":\"App Store\",\"click_url\":\"#\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "latest_product.content",
+  "data_values": "{\"tag\":\"New Arrivals\",\"title\":\"Latest Products\",\"button\":\"View All Products\",\"button_url\":\"products\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "testimonial.content",
+  "data_values": "{\"title\":\"Review\",\"subtitle\":\"Love From Clients\",\"review_text\":\"Review by 356 users worldwide\",\"rating_number\":\"4.8\",\"rating\":\"5\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "testimonial.element",
+  "data_values": "{\"has_image\":\"1\",\"name\":\"Daniel Carter\",\"designation\":\"Automotive Enthusiast\",\"review\":\"I was able to find every accessory my car needed in one place. From engine oil to cleaning tools, the selection is impressive and the ordering process is smooth and reliable.\",\"rating\":\"2\",\"image\":\"69b3ba513024b1773386321.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "testimonial.element",
+  "data_values": "{\"has_image\":\"1\",\"name\":\"Michael Rodriguez\",\"designation\":\"Professional Mechanic\",\"review\":\"This platform makes it easy to find quality parts for both cars and motorcycles. The product range is wide and it helps me quickly source the items I need for my workshop.\",\"rating\":\"4\",\"image\":\"69b3ba6481fc31773386340.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "testimonial.element",
+  "data_values": "{\"has_image\":\"1\",\"name\":\"Sarah Mitchell\",\"designation\":\"Car Owner\",\"review\":\"I really like how simple it is to browse through different automotive products. Finding tires, batteries, and maintenance tools for my vehicle has never been this convenient.\",\"rating\":\"5\",\"image\":\"69b3ba7890a9d1773386360.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "testimonial.element",
+  "data_values": "{\"has_image\":\"1\",\"name\":\"Kevin Thompson\",\"designation\":\"Bike Rider\",\"review\":\"As a motorcycle rider, I often need gear and maintenance items. This marketplace offers everything from riding gloves to bike care kits, all in one organized place.\",\"rating\":\"2\",\"image\":\"69b3ba8cbd5171773386380.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "testimonial.element",
+  "data_values": "{\"has_image\":\"1\",\"name\":\"Emily Watson\",\"designation\":\"Auto Accessories Buyer\",\"review\":\"\\u201cThe variety of car accessories available here is excellent. I found interior items, detailing products, and maintenance supplies without needing to search multiple websites.\\u201c\",\"rating\":\"5\",\"image\":\"69b3baa76c3181773386407.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "testimonial.element",
+  "data_values": "{\"has_image\":\"1\",\"name\":\"Ryan Cooper\",\"designation\":\"Motorcycle Technician\",\"review\":\"\\u201cFor someone who enjoys upgrading cars, this marketplace is perfect. It provides many performance and styling products that are easy to find and simple to order.\\u201d\",\"rating\":\"4\",\"image\":\"69b3baba61d601773386426.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "cta.content",
+  "data_values": "{\"has_image\":\"1\",\"tag\":\"Save Big\",\"title\":\"Grab Your Super Discount First Purchase\",\"description\":\"Enjoy exclusive savings when you shop with us for the first time. Don't miss out on this limited-time offer!\",\"first_button_text\":\"View Shop\",\"first_button_url\":\"products\",\"second_button_text\":\"Get Started\",\"second_button_url\":\"user\\/register\",\"image\":\"69b3bd778454b1773387127.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "blog.element",
+  "data_values": "{\"has_image\":[\"1\"],\"title\":\"Engine Oil Guide: Which Type Is Best for Your Car?\",\"description\":\"<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">The Reactive Model of Service Centers: Addressing Issues After They\\r\\n        Arise<\\/h6>\\r\\n    <div>The landscape of service center automation has undergone a remarkable\\r\\n        transformation over the past few decades, shifting from reactive to proactive\\r\\n        approaches. Initially, service centers operated on a reactive model, primarily\\r\\n        addressing issues only after they arose. This method often involved responding\\r\\n        to customer complaints and troubleshooting problems as they emerged, leading to\\r\\n        higher levels of downtime and customer dissatisfaction. The focus was largely on\\r\\n        fixing problems rather than preventing them, which created a cycle of continuous\\r\\n        reaction to service issues.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<blockquote class=\\\"mb-5\\\" style=\\\"background-color:#ffeedd;font-style:italic;text-align:center;padding:20px;font-size:18px;border-left:4px solid #ffc387;\\\">\\r\\n    Aenean metus lectus at id. Morbi aliquet commodo a sodales eget. Eu justo ante nibh\\r\\n    et a turpis, aliquam phasellus hymenaeos, imperdiet eget cras sociosqu, tincidunt a\\r\\n    amet. Faucibus urna luctus, arcu ni<\\/blockquote>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">Shifting Paradigms: The Move Toward Proactive Service Models<\\/h6>\\r\\n    <div>As technology advanced, the paradigm began to shift towards a more proactive\\r\\n        approach. The rise of advanced data analytics and machine learning techniques\\r\\n        enabled service centers to anticipate potential issues before they occurred. By\\r\\n        analyzing historical data and recognizing patterns, service centers could now\\r\\n        predict when equipment might fail or when a system could encounter problems.\\r\\n        This shift not only reduced the frequency of unexpected disruptions but also\\r\\n        improved overall operational efficiency. Predictive maintenance became a key\\r\\n        feature of proactive service centers, allowing them to schedule maintenance\\r\\n        activities during non-peak hours and address issues before they impacted the\\r\\n        customer experience.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">Harnessing Data Analytics and Machine Learning for Predictive\\r\\n        Maintenance<\\/h6>\\r\\n    <div>This evolution was further accelerated by the integration of artificial\\r\\n        intelligence (AI) and automation tools. AI-driven systems can now monitor and\\r\\n        analyze real-time data from various sources, providing insights into potential\\r\\n        issues and suggesting preventive measures. Automation tools facilitate swift\\r\\n        responses to identified issues, often without the need for human intervention.\\r\\n        For instance, automated systems can initiate repairs or adjustments based on\\r\\n        predefined parameters, ensuring that minor issues are resolved before they\\r\\n        escalate into significant problems.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">The Role of AI and Automation in Revolutionizing Service Center\\r\\n        Operations<\\/h6>\\r\\n    <div>The proactive approach not only enhances operational efficiency but also\\r\\n        fosters a more positive customer experience. By addressing potential issues\\r\\n        before they impact customers, service centers can ensure a higher level of\\r\\n        service continuity and reliability. Customers benefit from fewer disruptions and\\r\\n        a more streamlined experience, leading to increased satisfaction and loyalty.\\r\\n    <\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div>\\r\\n    <h6 class=\\\"mb-2\\\">Enhancing Customer Experience Through Proactive Service Strategies\\r\\n    <\\/h6>\\r\\n    <div>In essence, the evolution from a reactive to a proactive model in service\\r\\n        center automation represents a significant leap forward. It highlights the\\r\\n        importance of leveraging advanced technologies to not only address problems but\\r\\n        to anticipate and prevent them, ultimately leading to a more efficient and\\r\\n        customer-centric operation. As technology continues to evolve, service centers\\r\\n        will likely see even more sophisticated solutions that further enhance their\\r\\n        ability to provide seamless and proactive service.<\\/div>\\r\\n<\\/div>\",\"image\":\"69c92f2b3dbaa1774792491.png\"}",
+  "seo_content": null,
+  "slug": "engine-oil-guide-which-type-is-best-for-your-car"
+ },
+ {
+  "data_keys": "blog.element",
+  "data_values": "{\"has_image\":[\"1\"],\"title\":\"How to Choose the Right Brake Parts for Better Safety\",\"description\":\"<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">The Reactive Model of Service Centers: Addressing Issues After They\\r\\n        Arise<\\/h6>\\r\\n    <div>The landscape of service center automation has undergone a remarkable\\r\\n        transformation over the past few decades, shifting from reactive to proactive\\r\\n        approaches. Initially, service centers operated on a reactive model, primarily\\r\\n        addressing issues only after they arose. This method often involved responding\\r\\n        to customer complaints and troubleshooting problems as they emerged, leading to\\r\\n        higher levels of downtime and customer dissatisfaction. The focus was largely on\\r\\n        fixing problems rather than preventing them, which created a cycle of continuous\\r\\n        reaction to service issues.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<blockquote class=\\\"mb-5\\\" style=\\\"background-color:#ffeedd;font-style:italic;text-align:center;padding:20px;font-size:18px;border-left:4px solid #ffc387;\\\">\\r\\n    Aenean metus lectus at id. Morbi aliquet commodo a sodales eget. Eu justo ante nibh\\r\\n    et a turpis, aliquam phasellus hymenaeos, imperdiet eget cras sociosqu, tincidunt a\\r\\n    amet. Faucibus urna luctus, arcu ni<\\/blockquote>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">Shifting Paradigms: The Move Toward Proactive Service Models<\\/h6>\\r\\n    <div>As technology advanced, the paradigm began to shift towards a more proactive\\r\\n        approach. The rise of advanced data analytics and machine learning techniques\\r\\n        enabled service centers to anticipate potential issues before they occurred. By\\r\\n        analyzing historical data and recognizing patterns, service centers could now\\r\\n        predict when equipment might fail or when a system could encounter problems.\\r\\n        This shift not only reduced the frequency of unexpected disruptions but also\\r\\n        improved overall operational efficiency. Predictive maintenance became a key\\r\\n        feature of proactive service centers, allowing them to schedule maintenance\\r\\n        activities during non-peak hours and address issues before they impacted the\\r\\n        customer experience.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">Harnessing Data Analytics and Machine Learning for Predictive\\r\\n        Maintenance<\\/h6>\\r\\n    <div>This evolution was further accelerated by the integration of artificial\\r\\n        intelligence (AI) and automation tools. AI-driven systems can now monitor and\\r\\n        analyze real-time data from various sources, providing insights into potential\\r\\n        issues and suggesting preventive measures. Automation tools facilitate swift\\r\\n        responses to identified issues, often without the need for human intervention.\\r\\n        For instance, automated systems can initiate repairs or adjustments based on\\r\\n        predefined parameters, ensuring that minor issues are resolved before they\\r\\n        escalate into significant problems.<\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div class=\\\"mb-5\\\">\\r\\n    <h6 class=\\\"mb-2\\\">The Role of AI and Automation in Revolutionizing Service Center\\r\\n        Operations<\\/h6>\\r\\n    <div>The proactive approach not only enhances operational efficiency but also\\r\\n        fosters a more positive customer experience. By addressing potential issues\\r\\n        before they impact customers, service centers can ensure a higher level of\\r\\n        service continuity and reliability. Customers benefit from fewer disruptions and\\r\\n        a more streamlined experience, leading to increased satisfaction and loyalty.\\r\\n    <\\/div>\\r\\n<\\/div>\\r\\n\\r\\n<div>\\r\\n    <h6 class=\\\"mb-2\\\">Enhancing Customer Experience Through Proactive Service Strategies\\r\\n    <\\/h6>\\r\\n    <div>In essence, the evolution from a reactive to a proactive model in service\\r\\n        center automation represents a significant leap forward. It highlights the\\r\\n        importance of leveraging advanced technologies to not only address problems but\\r\\n        to anticipate and prevent them, ultimately leading to a more efficient and\\r\\n        customer-centric operation. As technology continues to evolve, service centers\\r\\n        will likely see even more sophisticated solutions that further enhance their\\r\\n        ability to provide seamless and proactive service.<\\/div>\\r\\n<\\/div>\",\"image\":\"69c92f213d6f91774792481.png\"}",
+  "seo_content": null,
+  "slug": "how-to-choose-the-right-brake-parts-for-better-safety"
+ },
+ {
+  "data_keys": "instagram.element",
+  "data_values": "{\"has_image\":[\"1\",\"1\"],\"follow_text\":\"Follow us on Instagram\",\"follow_url\":\"https:\\/\\/www.instagram.com\\/\",\"image\":\"69b3d495156861773393045.jpg\",\"social_image\":\"69b3d80cb680c1773393932.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "instagram.element",
+  "data_values": "{\"has_image\":[\"1\",\"1\"],\"follow_text\":\"Follow us on Instagram\",\"follow_url\":\"https:\\/\\/www.instagram.com\\/\",\"image\":\"69b3d4a48fa3d1773393060.jpg\",\"social_image\":\"69b3d8058f1c51773393925.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "instagram.element",
+  "data_values": "{\"has_image\":[\"1\",\"1\"],\"follow_text\":\"Follow us on Instagram\",\"follow_url\":\"https:\\/\\/www.instagram.com\\/\",\"image\":\"69b3d4b00c83d1773393072.jpg\",\"social_image\":\"69b3d7fe824131773393918.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "instagram.element",
+  "data_values": "{\"has_image\":[\"1\",\"1\"],\"follow_text\":\"Follow us on Instagram\",\"follow_url\":\"https:\\/\\/www.instagram.com\\/\",\"image\":\"69b3d4bc6feba1773393084.jpg\",\"social_image\":\"69b3d7f81cfbe1773393912.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "instagram.element",
+  "data_values": "{\"has_image\":[\"1\",\"1\"],\"follow_text\":\"Follow us on Instagram\",\"follow_url\":\"https:\\/\\/www.instagram.com\\/\",\"image\":\"69b3d4cb5847a1773393099.jpg\",\"social_image\":\"69b3d7f10bd371773393905.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "instagram.element",
+  "data_values": "{\"has_image\":[\"1\",\"1\"],\"follow_text\":\"Follow us on Instagram\",\"follow_url\":\"https:\\/\\/www.instagram.com\\/\",\"image\":\"69b3d4d3d6a141773393107.jpg\",\"social_image\":\"69b3d7ead5d611773393898.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "highlight.element",
+  "data_values": "{\"icon\":\"<i class=\\\"las la-shield-alt\\\"><\\/i>\",\"title\":\"100% Customer Satisfaction\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "highlight.element",
+  "data_values": "{\"icon\":\"<i class=\\\"las la-hands-helping\\\"><\\/i>\",\"title\":\"Help and access is our mission\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "highlight.element",
+  "data_values": "{\"icon\":\"<i class=\\\"las la-tools\\\"><\\/i>\",\"title\":\"100% quality Car Accessories\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "highlight.element",
+  "data_values": "{\"icon\":\"<i class=\\\"las la-headphones\\\"><\\/i>\",\"title\":\"24\\/7 Support for Clients\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "login.content",
+  "data_values": "{\"has_image\":\"1\",\"title\":\"Upgrade Every Drive\",\"subtitle\":\"Login in to continue your property search and manage your dashboard.\",\"short_description\":\"Premium Car Parts in Minutes\",\"trusted_text\":\"Trusted by 5,000+ automotive enthusiasts\",\"form_title\":\"Create Your Account\",\"background_image\":\"69b3df639e67b1773395811.png\",\"user_image\":\"69b3e7fc338b71773398012.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "register.content",
+  "data_values": "{\"has_image\":\"1\",\"title\":\"Upgrade Every Drive\",\"subtitle\":\"Register to continue your property search and manage your dashboard.\",\"short_description\":\"Premium Car Parts in Minutes\",\"trusted_text\":\"Trusted by 5,000+ automotive enthusiasts\",\"form_title\":\"Create Your Account\",\"background_image\":\"69b3e701aae0c1773397761.png\",\"user_image\":\"69b3e7e37a2091773397987.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "footer.content",
+  "data_values": "{\"subscriber_title\":\"Want to stay up to date?\",\"subscriber_desc\":\"Subscribe for updates, notifications, and exclusive offers. Stay connected!\",\"short_description\":\"Your trusted destination for genuine car parts and accessories. We ensure quality, reliability, and fast delivery to keep your vehicle running at its best.\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "about.content",
+  "data_values": "{\"has_image\":\"1\",\"title\":\"Top Picks\",\"subtitle\":\"Our Journey in Auto Excellence\",\"review_text\":\"10M+ Happy Clients\",\"review_number\":\"(4.5)\",\"rating\":\"4\",\"brand_text\":\"Trusted by professionals and businesses\",\"video_url\":\"https:\\/\\/www.youtube.com\\/watch?v=WOb4cj7izpE\",\"description\":\"VIPURI Auto Parts, with a rich 12-year legacy, stands as a trusted online destination for\\r\\n                        automotive enthusiasts seeking a wide range of high-quality vehicle components, all of which\\r\\n                        undergo rigorous quality checks to meet or exceed industry standards\\u2014ensuring reliability and\\r\\n                        confidence in every purchase.\",\"image\":\"6a01685f8c31d1778477151.png\",\"avatar_image\":\"6a0168781bbdd1778477176.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "client.element",
+  "data_values": "{\"has_image\":\"1\",\"image\":\"69c949301f61d1774799152.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "client.element",
+  "data_values": "{\"has_image\":\"1\",\"image\":\"69c9492a17b3b1774799146.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "client.element",
+  "data_values": "{\"has_image\":\"1\",\"image\":\"69c9492377fd71774799139.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "client.element",
+  "data_values": "{\"has_image\":\"1\",\"image\":\"69c9491c3ca031774799132.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "client.element",
+  "data_values": "{\"has_image\":\"1\",\"image\":\"69c94916387cb1774799126.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "contact.content",
+  "data_values": "{\"has_image\": \"1\", \"email_title\": \"Email Us\", \"email_desc\": \"Reach out anytime—our team is ready to assist you.\", \"email_address\": \"support@vipuri.co.tz\", \"number_title\": \"Call Us\", \"number_desc\": \"Give us a call—we're happy to help you anywhere, anytime.\", \"number\": \"+255 22 286 1000\", \"address_title\": \"Find Us\", \"address_desc\": \"Find our location and plan your visit with confidence.\", \"address\": \"Nyerere Road, Dar es Salaam, Tanzania\", \"title\": \"Feature Domain\", \"heading\": \"Connect With Our Experts\", \"subheading\": \"How quick is quick? We balance speed and quality to deliver top-notch design—fast.\", \"google_map_link\": \"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.7!2d39.2803!3d-6.8161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b0a0a0a0a0a%3A0x0!2sDar%20es%20Salaam%2C%20Tanzania!5e0!3m2!1sen!2stz!4v1700000000000\", \"thumb_image\": \"6a015e4e40b081778474574.png\", \"mail_image\": \"6a015e4fdf1b81778474575.png\", \"phone_image\": \"6a015e4fdf8fd1778474575.png\", \"address_image\": \"6a015e4fe006d1778474575.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "contact.element",
+  "data_values": "{\"has_image\":\"1\",\"title\":\"address\",\"image\":\"6a00979369a8b1778423699.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "contact.element",
+  "data_values": "{\"has_image\":\"1\",\"title\":\"number\",\"image\":\"6a009788e3c0e1778423688.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "contact.element",
+  "data_values": "{\"has_image\":\"1\",\"title\":\"email\",\"image\":\"6a00973906cb21778423609.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "footer.element",
+  "data_values": "{\"has_image\":\"1\",\"image\":\"69b4eb1d9106f1773464349.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "footer.element",
+  "data_values": "{\"has_image\":\"1\",\"image\":\"69b4eb2ee65631773464366.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "footer.element",
+  "data_values": "{\"has_image\":\"1\",\"image\":\"69b4eb367728f1773464374.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "footer.element",
+  "data_values": "{\"has_image\":\"1\",\"image\":\"69b4eb3d2e0f61773464381.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "footer.element",
+  "data_values": "{\"has_image\":\"1\",\"image\":\"69b4eb43a805e1773464387.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "footer.element",
+  "data_values": "{\"has_image\":\"1\",\"image\":\"69b4eb4aa95751773464394.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "top_selling_product.content",
+  "data_values": "{\"tag\":\"Top Picks\",\"title\":\"Top Selling Product\",\"button\":\"VIew All Products\",\"button_url\":\"products\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "top_deals.content",
+  "data_values": "{\"tag\":\"Deal Drop\",\"title\":\"Latest Deal of the week\",\"button\":\"VIew All Products\",\"button_url\":\"products\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "limited_stock.content",
+  "data_values": "{\"tag\":\"Limited Units\",\"title\":\"Limited Stock\",\"button\":\"VIew All Products\",\"button_url\":\"products\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "service-highlights.element",
+  "data_values": "{\"has_image\":[\"1\"],\"image\":\"69c934efb71ea1774793967.jpg\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "service-highlights.element",
+  "data_values": "{\"has_image\":[\"1\"],\"image\":\"69c934faa874f1774793978.jpg\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "service-highlights.element",
+  "data_values": "{\"has_image\":[\"1\"],\"image\":\"69c93502942d71774793986.jpg\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "service-highlights.element",
+  "data_values": "{\"has_image\":[\"1\"],\"image\":\"69c9350bb52901774793995.jpg\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "service-highlights.element",
+  "data_values": "{\"has_image\":[\"1\"],\"image\":\"69c935179579b1774794007.jpg\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "service-highlights.element",
+  "data_values": "{\"has_image\":[\"1\"],\"image\":\"69c93520766ba1774794016.jpg\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "video_feature.content",
+  "data_values": "{\"has_image\":\"1\",\"video_link\":\"https:\\/\\/www.youtube.com\\/watch?v=WOb4cj7izpE\",\"image\":\"6a00165f2b1041778390623.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "top_header.content",
+  "data_values": "{\"mail_icon\":\"<i class=\\\"las la-envelope\\\"><\\/i>\",\"mail_address\":\"info@vipuri.co.tz\",\"phone_icon\":\"<i class=\\\"las la-phone\\\"><\\/i>\",\"phone_number\":\"+255 22 286 1000\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "special_offer.content",
+  "data_values": "{\"title\":\"Stay Updated\",\"subtitle\":\"Special Offers\",\"button_name\":\"View all\",\"button_url\":\"product\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "page_banner.content",
+  "data_values": "{\"has_image\":\"1\",\"image\":\"6a016458c1c071778476120.jpg\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "about.element",
+  "data_values": "{\"has_image\":\"1\",\"brand_image\":\"6a0168e100e471778477281.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "about.element",
+  "data_values": "{\"has_image\":\"1\",\"brand_image\":\"6a0168d8b3f271778477272.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "about.element",
+  "data_values": "{\"has_image\":\"1\",\"brand_image\":\"6a0168d0502591778477264.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "about.element",
+  "data_values": "{\"has_image\":\"1\",\"brand_image\":\"6a0168c8d07691778477256.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "about.element",
+  "data_values": "{\"has_image\":\"1\",\"brand_image\":\"6a0168becba1a1778477246.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "about.element",
+  "data_values": "{\"has_image\":\"1\",\"brand_image\":\"6a0168b47346a1778477236.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "about.element",
+  "data_values": "{\"has_image\":\"1\",\"brand_image\":\"6a0168ad5d2361778477229.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "about.element",
+  "data_values": "{\"has_image\":\"1\",\"brand_image\":\"6a0168a5bdd3c1778477221.png\"}",
+  "seo_content": null,
+  "slug": null
+ },
+ {
+  "data_keys": "seo.data",
+  "data_values": "{\"keywords\":[\"VIPURI\",\"auto parts ecommerce\",\"vehicle accessories platform\",\"AI auto parts finder\",\"car parts marketplace\",\"automotive ecommerce solution\",\"spare parts online store\",\"vehicle accessories shop\",\"AI driven ecommerce\",\"car accessories platform\",\"automotive parts management\",\"online spare parts business\",\"vehicle parts marketplace\",\"Laravel auto parts platform\",\"ecommerce solution for auto parts\"],\"description\":\"VIPURI is an AI driven auto parts and vehicle accessories ecommerce platform designed for modern automotive businesses. Easily manage, sell, and discover car parts, spare components, and vehicle accessories with advanced search, smart recommendations, inventory management, and seamless online shopping features.\",\"social_title\":\"VIPURI \\u2013 AI Driven Auto Parts And Vehicle Accessories Ecommerce Platform\",\"social_description\":\"Launch a powerful automotive ecommerce business with VIPURI. Sell auto parts, spare components, and vehicle accessories using AI powered search, smart product discovery, inventory management, and a modern shopping experience for customers and businesses.\",\"image\":\"6a0466c4461d41778673348.png\",\"meta_robots\":null}",
+  "seo_content": null,
+  "slug": null
+ }
+]
