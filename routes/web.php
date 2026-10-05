@@ -77,4 +77,14 @@ Route::get('/media/{path}', function (string $path) {
     return response()->file($real, [
         'Cache-Control' => 'public, max-age=31536000, immutable',
     ]);
-})->where('path', '.*')->name('media');
+})->where('path', '.*')->name('media')
+    // A file response needs no session, cookies or CSRF token. Starting a
+    // session for every image wrote two cookies per file and serialised
+    // concurrent image requests on the session store.
+    ->withoutMiddleware([
+        \Illuminate\Cookie\Middleware\EncryptCookies::class,
+        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \Illuminate\Foundation\Http\Middleware\PreventRequestForgery::class,
+    ]);

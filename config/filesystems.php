@@ -49,8 +49,12 @@ return [
              * in local development. The route works under any server; in
              * production you can still point the web server straight at
              * storage/app/public for zero-overhead delivery.
+             *
+             * MEDIA_URL switches to that: in production set it to
+             * https://<api-host>/storage so images are served by the web
+             * server itself rather than booting PHP for every file.
              */
-            'url' => rtrim(env('APP_URL', 'http://localhost'), '/').'/media',
+            'url' => rtrim(env('MEDIA_URL', rtrim(env('APP_URL', 'http://localhost'), '/').'/media'), '/'),
             'visibility' => 'public',
             'throw' => false,
             'report' => false,
