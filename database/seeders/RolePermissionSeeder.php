@@ -19,24 +19,19 @@ class RolePermissionSeeder extends Seeder
             Permission::firstOrCreate(['name' => $permission, 'guard_name' => Roles::GUARD]);
         }
 
-        $superAdmin = Role::firstOrCreate(['name' => Roles::SUPER_ADMIN, 'guard_name' => Roles::GUARD]);
-        $manager = Role::firstOrCreate(['name' => Roles::BRANCH_MANAGER, 'guard_name' => Roles::GUARD]);
-        $worker = Role::firstOrCreate(['name' => Roles::BRANCH_WORKER, 'guard_name' => Roles::GUARD]);
+        // Every built-in role with its rank, description and default
+        // permissions. The super admin always holds every permission.
+        foreach (Roles::defaults() as $name => $permissions) {
+            $role = Role::firstOrCreate(['name' => $name, 'guard_name' => Roles::GUARD]);
+            $role->forceFill([
+                'level' => Roles::LEVELS[$name],
+                'description' => Roles::DESCRIPTIONS[$name],
+            ])->save();
 
-        // The super admin holds every permission, always.
-        $superAdmin->syncPermissions(Permission::where('guard_name', Roles::GUARD)->get());
-
-        $manager->syncPermissions(
-            Permission::where('guard_name', Roles::GUARD)
-                ->whereIn('name', Roles::BRANCH_MANAGER_PERMISSIONS)
-                ->get()
-        );
-
-        $worker->syncPermissions(
-            Permission::where('guard_name', Roles::GUARD)
-                ->whereIn('name', Roles::BRANCH_WORKER_PERMISSIONS)
-                ->get()
-        );
+            $role->syncPermissions(
+                Permission::where('guard_name', Roles::GUARD)->whereIn('name', $permissions)->get()
+            );
+        }
 
         App::make(PermissionRegistrar::class)->forgetCachedPermissions();
     }

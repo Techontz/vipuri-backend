@@ -279,6 +279,81 @@ class InventoryService
     }
 
     /**
+     * Counter sale: take the goods out of one branch's stock immediately.
+     *
+     * Unlike an online order there is no reservation step — the customer is
+     * standing at the counter. Every line's branch row is locked first (in a
+     * stable order, so two tills selling the same parts cannot deadlock), the
+     * free quantity (stock − reserved) is checked for tracked items, and only
+     * then is anything deducted. Stock reserved for online orders is never
+     * sold over the counter.
+     *
+     * @throws RuntimeException naming the first line the branch cannot cover.
+     */
+    public function sellAtCounter(Order $order): void
+    {
+        if (! $order->branch_id) {
+            throw new RuntimeException('A counter sale needs a branch');
+        }
+
+        DB::transaction(function () use ($order) {
+            $needed = [];
+
+            foreach ($order->orderItems as $item) {
+                $key = $item->product_id . ':' . (int) $item->variation_id;
+                $needed[$key] ??= ['product_id' => (int) $item->product_id, 'variation_id' => (int) $item->variation_id, 'quantity' => 0, 'name' => $item->product_name];
+                $needed[$key]['quantity'] += (int) $item->quantity;
+            }
+
+            ksort($needed, SORT_NATURAL);
+
+            foreach ($needed as $line) {
+                $row = $this->lockRow($order->branch_id, $line['product_id'], $line['variation_id']);
+
+                $variation = $line['variation_id'] ? ProductVariation::find($line['variation_id']) : null;
+                $product = Product::find($line['product_id']);
+                $tracks = $variation ? $variation->trackInventory() : (bool) $product?->trackInventory();
+
+                if (! $tracks) {
+                    continue;
+                }
+
+                $free = max(0, (int) $row->stock_quantity - (int) $row->reserved_quantity);
+
+                if ($free < $line['quantity']) {
+                    throw new RuntimeException($free > 0
+                        ? "Only {$free} of \"{$line['name']}\" left at this branch"
+                        : "\"{$line['name']}\" is out of stock at this branch");
+                }
+            }
+
+            foreach ($order->orderItems as $item) {
+                $this->adjust(
+                    $order->branch_id,
+                    (int) $item->product_id,
+                    (int) $item->variation_id,
+                    -$item->quantity,
+                    'sale',
+                    "Counter sale {$order->order_number}",
+                    $order->id,
+                );
+            }
+        });
+    }
+
+    /** Free quantity (stock − reserved) of one line at one branch, without locking. */
+    public function freeAtBranch(int $branchId, int $productId, int $variationId = 0): int
+    {
+        $row = BranchInventory::query()
+            ->where('branch_id', $branchId)
+            ->where('product_id', $productId)
+            ->where('variation_id', $variationId)
+            ->first(['stock_quantity', 'reserved_quantity']);
+
+        return $row ? max(0, (int) $row->stock_quantity - (int) $row->reserved_quantity) : 0;
+    }
+
+    /**
      * The branch row for a line, locked until the surrounding transaction ends.
      * Every reservation change goes through this so they serialise.
      */

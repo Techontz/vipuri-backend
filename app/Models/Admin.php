@@ -74,12 +74,52 @@ class Admin extends Authenticatable
     }
 
     /**
+     * Whether this staff member works across every branch: a super admin, or
+     * anyone whose role grants the company-wide permission (e.g. Admin).
+     */
+    public function isCompanyWide(): bool
+    {
+        return $this->isSuperAdmin() || $this->hasPermissionTo(Roles::COMPANY_WIDE, Roles::GUARD);
+    }
+
+    /**
+     * Rank of this staff member's role (roles.level). Staff may only create
+     * and manage people of a lower rank.
+     */
+    public function roleLevel(): int
+    {
+        if ($this->isSuperAdmin()) {
+            return Roles::LEVELS[Roles::SUPER_ADMIN];
+        }
+
+        return (int) ($this->roles->max('level') ?? 0);
+    }
+
+    /**
+     * Whether this staff member may create, edit or deactivate `$other`:
+     * always themselves; otherwise someone of a lower rank who sits inside
+     * their branch scope. Super admins can only be managed by super admins.
+     */
+    public function canManageStaff(self $other): bool
+    {
+        if ($this->id === $other->id || $this->isSuperAdmin()) {
+            return true;
+        }
+
+        if ($other->isSuperAdmin() || $other->roleLevel() >= $this->roleLevel()) {
+            return false;
+        }
+
+        return $this->isCompanyWide() || ((int) $other->branch_id === (int) $this->branch_id && $this->branch_id);
+    }
+
+    /**
      * Branch ids this staff member may read/write.
-     * `null` means "no restriction" (super admin).
+     * `null` means "no restriction" (company-wide staff).
      */
     public function scopedBranchIds(): ?array
     {
-        if ($this->isSuperAdmin()) {
+        if ($this->isCompanyWide()) {
             return null;
         }
 
@@ -89,7 +129,7 @@ class Admin extends Authenticatable
     /** Whether this staff member may act on the given branch. */
     public function canAccessBranch(?int $branchId): bool
     {
-        if ($this->isSuperAdmin()) {
+        if ($this->isCompanyWide()) {
             return true;
         }
 
@@ -98,7 +138,7 @@ class Admin extends Authenticatable
 
     /**
      * Constrain a query that has a `branch_id` column to this staff member's
-     * branch. Super admins are left unconstrained.
+     * branch. Company-wide staff are left unconstrained.
      */
     public function applyBranchScope($query, string $column = 'branch_id')
     {

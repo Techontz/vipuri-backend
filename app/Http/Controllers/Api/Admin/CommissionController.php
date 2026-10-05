@@ -95,7 +95,7 @@ class CommissionController extends Controller
 
         $commission = OrderCommission::findOrFail($id);
 
-        if (! $this->admin()->isSuperAdmin() && (int) $commission->branch_id !== (int) $this->admin()->branch_id) {
+        if (! $this->admin()->canAccessBranch($commission->branch_id)) {
             abort(403, 'This commission belongs to another branch');
         }
 

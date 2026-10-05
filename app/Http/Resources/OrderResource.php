@@ -17,6 +17,21 @@ class OrderResource extends JsonResource
             'payment_status' => (int) $this->payment_status,
             'payment_status_label' => $this->payment_status_label,
             'cod' => (bool) $this->cod,
+            'channel' => $this->channel ?? 'online',
+            'channel_label' => ($this->channel ?? 'online') === 'pos' ? 'Counter sale' : 'Online',
+            'payment_method' => $this->payment_method,
+            'payment_method_label' => $this->payment_method_label,
+            'payment_reference' => $this->payment_reference,
+            'amount_received' => $this->amount_received !== null ? (float) $this->amount_received : null,
+            'change_due' => (float) ($this->change_due ?? 0),
+            'sold_by' => $this->whenLoaded('soldBy', fn () => $this->soldBy?->name),
+            // One name for the list, whoever the customer is: an account, a
+            // guest checkout, or a walk-in recorded on a counter sale.
+            'customer_name' => $this->user_id
+                ? ($this->relationLoaded('user') ? $this->user?->fullname : null)
+                : ($this->relationLoaded('guest') && $this->guest
+                    ? trim($this->guest->firstname . ' ' . $this->guest->lastname)
+                    : ($this->shipping_address->name ?? null)),
             'subtotal' => (float) $this->subtotal,
             'shipping_charge' => (float) $this->shipping_charge,
             'total_tax' => (float) $this->total_tax,

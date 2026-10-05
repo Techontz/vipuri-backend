@@ -13,13 +13,53 @@ class Roles
     public const GUARD = 'admin';
 
     public const SUPER_ADMIN = 'Super Admin';
+    public const ADMIN = 'Admin';
     public const BRANCH_MANAGER = 'Branch Manager';
+    public const HR_OFFICER = 'HR Officer';
+    public const SALES_ASSISTANT = 'Sales Assistant';
     public const BRANCH_WORKER = 'Branch Worker';
 
+    /** The roles VIPURI ships with. Administrators can add their own. */
     public const ALL = [
         self::SUPER_ADMIN,
+        self::ADMIN,
         self::BRANCH_MANAGER,
+        self::HR_OFFICER,
+        self::SALES_ASSISTANT,
         self::BRANCH_WORKER,
+    ];
+
+    /**
+     * Permission that lifts the one-branch restriction: holders see and act
+     * on every branch, and need no branch of their own.
+     */
+    public const COMPANY_WIDE = 'branch.all';
+
+    /**
+     * Rank of each built-in role (roles.level). Staff can only create and
+     * manage people whose role ranks below their own, so HR can hire sales
+     * assistants but never a manager, and nobody but a super admin can make
+     * another super admin.
+     */
+    public const LEVELS = [
+        self::SUPER_ADMIN => 100,
+        self::ADMIN => 90,
+        self::BRANCH_MANAGER => 60,
+        self::HR_OFFICER => 50,
+        self::SALES_ASSISTANT => 20,
+        self::BRANCH_WORKER => 20,
+    ];
+
+    /** Rank given to a custom role when none is chosen. */
+    public const DEFAULT_LEVEL = 20;
+
+    public const DESCRIPTIONS = [
+        self::SUPER_ADMIN => 'Owns the system: every permission, every branch, and the only role that can create other super admins.',
+        self::ADMIN => 'Runs the business across all branches: catalogue, stock, orders, staff and reports. Cannot touch system configuration or super admins.',
+        self::BRANCH_MANAGER => 'Runs one branch: its orders, stock, counter sales, reports and staff below manager level.',
+        self::HR_OFFICER => 'Looks after people in one branch: adds and updates staff accounts below their own rank.',
+        self::SALES_ASSISTANT => 'Serves customers in one branch: sells at the counter, handles orders and checks stock.',
+        self::BRANCH_WORKER => 'Fulfils orders in one branch: picks, dispatches and delivers, and keeps stock counts right.',
     ];
 
     /**
@@ -32,6 +72,7 @@ class Roles
             'dashboard.company', // company-wide figures (super admin only by default)
         ],
         'Branches' => [
+            'branch.all', // work across every branch (company-wide access)
             'branch.view',
             'branch.create',
             'branch.update',
@@ -45,6 +86,7 @@ class Roles
             'staff.status',
             'staff.assign_branch',
             'staff.roles',
+            'role.manage', // create, rename and delete roles
         ],
         'Customers' => [
             'customer.view',
@@ -67,8 +109,13 @@ class Roles
             'stock_unit.manage',
             'review.manage',
         ],
+        'Point of Sale' => [
+            'pos.sell', // sell to walk-in customers at the counter
+            'pos.discount', // change prices / give discounts at the counter
+        ],
         'Inventory' => [
             'inventory.view',
+            'inventory.receive', // book in new stock for a branch
             'inventory.adjust',
             'inventory.transfer',
             'inventory.transfer_approve',
@@ -150,7 +197,8 @@ class Roles
         'staff.view', 'staff.create', 'staff.update', 'staff.status',
         'customer.view',
         'product.view',
-        'inventory.view', 'inventory.adjust', 'inventory.transfer', 'inventory.history',
+        'inventory.view', 'inventory.receive', 'inventory.adjust', 'inventory.transfer', 'inventory.history',
+        'pos.sell', 'pos.discount',
         'order.view', 'order.update_status', 'order.cancel', 'order.return', 'order.invoice',
         'commission.view_own', 'commission.view_all',
         'review.manage',
@@ -169,4 +217,47 @@ class Roles
         'ticket.view', 'ticket.reply',
         'customer.view',
     ];
+
+    /** Default permissions granted to an HR Officer. */
+    public const HR_OFFICER_PERMISSIONS = [
+        'dashboard.view',
+        'staff.view', 'staff.create', 'staff.update', 'staff.status',
+        'customer.view',
+        'report.login_history',
+    ];
+
+    /** Default permissions granted to a Sales Assistant. */
+    public const SALES_ASSISTANT_PERMISSIONS = [
+        'dashboard.view',
+        'pos.sell',
+        'product.view',
+        'inventory.view',
+        'order.view', 'order.update_status', 'order.invoice',
+        'customer.view',
+        'commission.view_own',
+        'ticket.view', 'ticket.reply',
+    ];
+
+    /**
+     * An Admin holds everything except system-level configuration, which
+     * stays with the super admin.
+     */
+    public const ADMIN_EXCLUDED_PERMISSIONS = [
+        'setting.system',
+        'extension.manage',
+        'gateway.manage',
+    ];
+
+    /** @return array<string, string[]> default permission set per built-in role */
+    public static function defaults(): array
+    {
+        return [
+            self::SUPER_ADMIN => self::all(),
+            self::ADMIN => array_values(array_diff(self::all(), self::ADMIN_EXCLUDED_PERMISSIONS)),
+            self::BRANCH_MANAGER => self::BRANCH_MANAGER_PERMISSIONS,
+            self::HR_OFFICER => self::HR_OFFICER_PERMISSIONS,
+            self::SALES_ASSISTANT => self::SALES_ASSISTANT_PERMISSIONS,
+            self::BRANCH_WORKER => self::BRANCH_WORKER_PERMISSIONS,
+        ];
+    }
 }

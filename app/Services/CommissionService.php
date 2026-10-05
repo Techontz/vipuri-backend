@@ -154,6 +154,12 @@ class CommissionService
      */
     private function earnerFor(Order $order): ?Admin
     {
+        // A counter sale is processed and handed over by one person in one
+        // step, so whichever rule is configured the seller is the earner.
+        if ($order->channel === Order::CHANNEL_POS && $order->sold_by) {
+            return Admin::find($order->sold_by);
+        }
+
         $status = $this->attribution() === 'processed_by'
             ? Status::ORDER_PROCESSING
             : Status::ORDER_DELIVERED;

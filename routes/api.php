@@ -11,10 +11,12 @@ use App\Http\Controllers\Api\Admin\InventoryController;
 use App\Http\Controllers\Api\Admin\MarketingController;
 use App\Http\Controllers\Api\Admin\OperationsController;
 use App\Http\Controllers\Api\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Api\Admin\PosController;
 use App\Http\Controllers\Api\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Api\Admin\ReportController;
 use App\Http\Controllers\Api\Admin\SettingController;
 use App\Http\Controllers\Api\Admin\StaffController;
+use App\Http\Controllers\Api\Admin\StockReceiptController;
 use App\Http\Controllers\Api\Admin\TaxonomyController;
 use App\Http\Controllers\Api\Shop\AiController;
 use App\Http\Controllers\Api\Shop\CartController;
@@ -208,8 +210,13 @@ Route::prefix('v1')->group(function () {
             Route::prefix('staff')->group(function () {
                 Route::get('/', [StaffController::class, 'index'])->middleware('permission:staff.view');
                 Route::get('roles', [StaffController::class, 'rolesAndPermissions'])->middleware('permission:staff.view');
+                Route::post('roles', [StaffController::class, 'storeRole'])->middleware('permission:role.manage');
+                Route::post('roles/{roleId}', [StaffController::class, 'updateRole'])
+                    ->whereNumber('roleId')->middleware('permission:role.manage');
+                Route::delete('roles/{roleId}', [StaffController::class, 'destroyRole'])
+                    ->whereNumber('roleId')->middleware('permission:role.manage');
                 Route::post('roles/{roleId}/permissions', [StaffController::class, 'updateRolePermissions'])
-                    ->whereNumber('roleId')->middleware('permission:staff.roles');
+                    ->whereNumber('roleId')->middleware('permission:role.manage');
                 Route::get('{id}', [StaffController::class, 'show'])->whereNumber('id')->middleware('permission:staff.view');
                 Route::post('/', [StaffController::class, 'store'])->middleware('permission:staff.create');
                 Route::post('{id}', [StaffController::class, 'update'])->whereNumber('id')->middleware('permission:staff.update');
@@ -288,11 +295,25 @@ Route::prefix('v1')->group(function () {
             });
 
             /* ----------------------------- Inventory --------------------- */
+            /* --------------------------- Point of sale ------------------- */
+            // Counter sales to walk-in customers, from the seller's branch stock.
+            Route::prefix('pos')->middleware('permission:pos.sell')->group(function () {
+                Route::get('products', [PosController::class, 'products']);
+                Route::get('customers', [PosController::class, 'customers']);
+                Route::post('sales', [PosController::class, 'store']);
+                Route::get('sales', [PosController::class, 'index']);
+                Route::get('sales/{id}', [PosController::class, 'show'])->whereNumber('id');
+            });
+
             Route::prefix('inventory')->group(function () {
                 Route::get('/', [InventoryController::class, 'index'])->middleware('permission:inventory.view');
                 Route::get('assignable-products', [InventoryController::class, 'assignableProducts'])->middleware('permission:inventory.view');
                 Route::get('history', [InventoryController::class, 'history'])->middleware('permission:inventory.history');
                 Route::post('adjust', [InventoryController::class, 'adjust'])->middleware('permission:inventory.adjust');
+                // Booking in new stock for a branch (goods received).
+                Route::get('receipts', [StockReceiptController::class, 'index'])->middleware('permission:inventory.receive');
+                Route::post('receipts', [StockReceiptController::class, 'store'])->middleware('permission:inventory.receive');
+                Route::get('receipts/{id}', [StockReceiptController::class, 'show'])->whereNumber('id')->middleware('permission:inventory.receive');
 
                 Route::get('transfers', [InventoryController::class, 'transfers'])->middleware('permission:inventory.view');
                 Route::post('transfers', [InventoryController::class, 'createTransfer'])->middleware('permission:inventory.transfer');

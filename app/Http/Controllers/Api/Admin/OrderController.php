@@ -30,6 +30,7 @@ class OrderController extends Controller
                 'user:id,firstname,lastname,email,mobile',
                 'guest',
                 'branch:id,name,code',
+                'soldBy:id,name',
                 'orderItems.product.media',
                 'orderItems.variation',
             )
@@ -46,8 +47,13 @@ class OrderController extends Controller
                     ->orWhereHas('guest', fn ($g) => $g->where('email', 'like', "%$s%")
                         ->orWhere('firstname', 'like', "%$s%")
                         ->orWhere('lastname', 'like', "%$s%")
-                        ->orWhere('mobile', 'like', "%$s%"));
+                        ->orWhere('mobile', 'like', "%$s%"))
+                    // Walk-in counter customers exist only on the order itself.
+                    ->orWhere(fn ($pos) => $pos->where('channel', Order::CHANNEL_POS)
+                        ->where('shipping_address', 'like', "%$s%"));
             }))
+            ->when(in_array($request->query('channel'), [Order::CHANNEL_ONLINE, Order::CHANNEL_POS], true),
+                fn ($q) => $q->where('channel', $request->query('channel')))
             ->when($request->query('branch_id'), function ($q, $branchId) {
                 $this->authorizeBranch((int) $branchId);
                 $q->where('branch_id', $branchId);
@@ -92,9 +98,9 @@ class OrderController extends Controller
         return responseSuccess('order', 'Order fetched', [
             'order' => new OrderResource($order->load([
                 'orderItems.product.media', 'orderItems.variation', 'user', 'guest',
-                'branch', 'shippingMethod', 'statusLogs', 'deposits.gateway', 'processedBy',
+                'branch', 'shippingMethod', 'statusLogs', 'deposits.gateway', 'processedBy', 'soldBy',
             ])),
-            'branches' => $this->admin()->isSuperAdmin()
+            'branches' => $this->admin()->isCompanyWide()
                 ? Branch::active()->get(['id', 'name', 'code'])
                 : [],
         ]);
@@ -157,16 +163,23 @@ class OrderController extends Controller
         return responseSuccess('order_paid', 'Order marked as paid', ['order' => new OrderResource($order)]);
     }
 
-    /** Reassign fulfilment to another branch. Super admin only. */
+    /** Reassign fulfilment to another branch. Company-wide staff only. */
     public function assignBranch(Request $request, int $id)
     {
-        if (! $this->admin()->isSuperAdmin()) {
-            abort(403, 'Only a super administrator can reassign an order to another branch');
+        if (! $this->admin()->isCompanyWide()) {
+            abort(403, 'Only company-wide administrators can move an order to another branch');
         }
 
         $data = $request->validate(['branch_id' => ['required', 'integer', 'exists:branches,id']]);
 
         $order = Order::with('orderItems')->findOrFail($id);
+
+        // A counter sale left the shelf of the branch that sold it; moving it
+        // would make a later return restock the wrong branch.
+        if ($order->isPos()) {
+            return responseError('pos_order', ['A counter sale stays with the branch that made it']);
+        }
+
         $order = $this->orders->assignBranch($order, (int) $data['branch_id']);
 
         return responseSuccess('order_reassigned', 'Order reassigned', [
@@ -195,7 +208,7 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
 
-        if (! $this->admin()->isSuperAdmin() && (int) $order->branch_id !== (int) $this->admin()->branch_id) {
+        if (! $this->admin()->canAccessBranch($order->branch_id)) {
             abort(403, 'This order belongs to another branch');
         }
 

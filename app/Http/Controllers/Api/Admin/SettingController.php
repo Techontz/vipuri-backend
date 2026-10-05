@@ -785,7 +785,7 @@ class SettingController extends Controller
 
     private function authorizeNotification(AdminNotification $notification): void
     {
-        if ($this->admin()->isSuperAdmin()) {
+        if ($this->admin()->isCompanyWide()) {
             return;
         }
 

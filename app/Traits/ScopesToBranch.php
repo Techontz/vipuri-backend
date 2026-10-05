@@ -44,7 +44,7 @@ trait ScopesToBranch
     {
         $admin = $this->admin();
 
-        if (! $admin->isSuperAdmin()) {
+        if (! $admin->isCompanyWide()) {
             return $admin->branch_id;
         }
 

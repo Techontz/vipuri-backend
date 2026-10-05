@@ -264,8 +264,8 @@ class BranchController extends Controller
 
     private function assertSuperAdmin(): void
     {
-        if (! $this->admin()->isSuperAdmin()) {
-            abort(403, 'Only a super administrator can manage branches');
+        if (! $this->admin()->isCompanyWide()) {
+            abort(403, 'Only company-wide administrators can manage branches');
         }
     }
 

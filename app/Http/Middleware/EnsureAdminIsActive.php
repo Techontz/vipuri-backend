@@ -28,8 +28,9 @@ class EnsureAdminIsActive
             ], code: 403);
         }
 
-        // A non-super-admin must always belong to a branch.
-        if (! $admin->isSuperAdmin() && ! $admin->branch_id) {
+        // Branch staff must always belong to a branch; only company-wide
+        // roles (super admin, admin) work without one.
+        if (! $admin->isCompanyWide() && ! $admin->branch_id) {
             return responseError('no_branch', [
                 'Your account is not assigned to a branch. Contact a super administrator.',
             ], code: 403);

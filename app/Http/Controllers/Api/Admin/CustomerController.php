@@ -184,11 +184,11 @@ class CustomerController extends Controller
         return responseSuccess('customer_notified', 'Notification sent');
     }
 
-    /** Bulk notification to a customer segment. Super admin only. */
+    /** Bulk notification to a customer segment. Company-wide staff only. */
     public function notifyAll(Request $request)
     {
-        if (! $this->admin()->isSuperAdmin()) {
-            abort(403, 'Only a super administrator can send bulk notifications');
+        if (! $this->admin()->isCompanyWide()) {
+            abort(403, 'Only company-wide administrators can send bulk notifications');
         }
 
         $data = $request->validate([

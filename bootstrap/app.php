@@ -88,6 +88,17 @@ return Application::configure(basePath: dirname(__DIR__))
 
             $status = $e instanceof HttpExceptionInterface ? $e->getStatusCode() : 500;
 
+            // abort(403|422, '…') messages are written for the user ("You can
+            // only manage staff ranked below you"); show them even with debug
+            // off. Only genuine server errors stay generic.
+            if ($status < 500 && $e->getMessage() !== '') {
+                return response()->json([
+                    'remark' => $status === 403 ? 'forbidden' : 'error',
+                    'status' => 'error',
+                    'message' => ['error' => [$e->getMessage()]],
+                ], $status);
+            }
+
             return response()->json([
                 'remark' => 'server_error',
                 'status' => 'error',
