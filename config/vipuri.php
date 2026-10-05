@@ -67,10 +67,20 @@ return [
         'userProfile' => ['path' => 'assets/images/user/profile', 'size' => '350x300'],
         'adminProfile' => ['path' => 'assets/images/admin/profile', 'size' => '400x400'],
         'verify' => ['path' => 'assets/images/verify', 'size' => '800x800'],
-        'logoIcon' => ['path' => 'assets/images/logo_icon'],
+        /*
+         * `preserve_format` opts a key out of the WebP conversion in
+         * FileManager. This one holds the favicon, and browser support for a
+         * WebP favicon is inconsistent enough that a missing tab icon is a
+         * worse trade than a slightly larger file.
+         */
+        'logoIcon' => ['path' => 'assets/images/logo_icon', 'preserve_format' => true],
         'maintenance' => ['path' => 'assets/images/maintenance', 'size' => '600x400'],
         'seo' => ['path' => 'assets/images/seo', 'size' => '600x315'],
-        'frontend' => ['path' => 'assets/images/frontend', 'size' => '800x600'],
+        /*
+         * No fixed size: CMS images range from 45px icons to 1920x700 hero
+         * banners, and cropping every one to 800x600 cut them apart.
+         */
+        'frontend' => ['path' => 'assets/images/frontend'],
         'ticket' => ['path' => 'assets/images/support', 'size' => '400x400'],
         'review' => ['path' => 'assets/images/review', 'size' => '400x400'],
         'offer' => ['path' => 'assets/images/offer', 'size' => '600x400'],

@@ -101,6 +101,7 @@ Route::prefix('v1')->group(function () {
             Route::post('/', [CheckoutController::class, 'store']);
             Route::get('{orderNumber}/payment-methods', [CheckoutController::class, 'paymentMethods']);
             Route::post('{orderNumber}/pay', [CheckoutController::class, 'pay']);
+            Route::post('{orderNumber}/mobile-money', [CheckoutController::class, 'mobileMoney']);
         });
 
         Route::post('payment/manual/{trx}', [CheckoutController::class, 'submitManualPayment']);
@@ -236,6 +237,7 @@ Route::prefix('v1')->group(function () {
                 Route::post('/', [AdminProductController::class, 'store'])->middleware('permission:product.create');
                 Route::post('{id}', [AdminProductController::class, 'update'])->whereNumber('id')->middleware('permission:product.update');
                 Route::post('{id}/status', [AdminProductController::class, 'changeStatus'])->whereNumber('id')->middleware('permission:product.status');
+                Route::delete('{id}', [AdminProductController::class, 'destroy'])->whereNumber('id')->middleware('permission:product.delete');
                 Route::delete('media/{mediaId}', [AdminProductController::class, 'deleteMedia'])->whereNumber('mediaId')->middleware('permission:product.update');
                 Route::post('media/{mediaId}/main', [AdminProductController::class, 'setMainMedia'])->whereNumber('mediaId')->middleware('permission:product.update');
             });

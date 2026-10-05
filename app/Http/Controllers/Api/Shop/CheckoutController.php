@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderResource;
 use App\Models\Address;
 use App\Models\Deposit;
+use App\Models\GatewayCurrency;
 use App\Models\Guest;
 use App\Models\Order;
 use App\Services\CartIdentity;
@@ -14,6 +15,7 @@ use App\Services\CartService;
 use App\Services\NotificationService;
 use App\Services\OrderService;
 use App\Services\Payment\PaymentManager;
+use App\Support\MobileMoney;
 use Illuminate\Http\Request;
 use RuntimeException;
 
@@ -194,6 +196,79 @@ class CheckoutController extends Controller
             'charge' => (float) $result['deposit']->charge,
             'final_amount' => (float) $result['deposit']->final_amount,
         ]);
+    }
+
+    /**
+     * Pay by mobile money with just a phone number.
+     *
+     * The network is detected from the number, so the customer never picks
+     * M-Pesa, Tigo Pesa or Airtel Money. No push-payment provider is connected
+     * yet, so for now the request is recorded against the matching gateway and
+     * lands in the admin payment queue for VIPURI to collect and confirm —
+     * `push_sent` tells the storefront which message to show. A USSD-push
+     * provider plugs in here: send the prompt to `$msisdn`, set `push_sent`,
+     * and let its callback settle the deposit through PaymentManager.
+     */
+    public function mobileMoney(Request $request, string $orderNumber)
+    {
+        $data = $request->validate(['phone' => ['required', 'string', 'max:20']]);
+
+        $msisdn = MobileMoney::normalise($data['phone']);
+
+        if (! $msisdn) {
+            return responseError('invalid_phone', ['Enter a valid Tanzanian mobile number, e.g. 0754 123 456']);
+        }
+
+        $network = MobileMoney::network($msisdn);
+
+        if (! $network) {
+            return responseError('unknown_network', ['We could not tell which network this number is on']);
+        }
+
+        $order = $this->findOrder($orderNumber);
+
+        if ((int) $order->payment_status === Status::PAYMENT_SUCCESS) {
+            throw new RuntimeException('This order has already been paid');
+        }
+
+        if ($order->deposits()->where('status', Status::PAYMENT_PENDING)->exists()) {
+            return responseError('payment_pending', ['A payment for this order is already waiting for confirmation']);
+        }
+
+        $currency = $this->mobileMoneyCurrency($network['gateway_code']);
+
+        if (! $currency) {
+            return responseError('mobile_money_unavailable', ['Mobile money payments are not available right now']);
+        }
+
+        $result = $this->payments->startPayment($order, $currency->id);
+        $deposit = $this->payments->submitManualPayment($result['deposit'], [
+            'paying_number' => MobileMoney::display($msisdn),
+            'network' => $network['name'],
+            'channel' => 'Mobile money request (no push provider connected yet)',
+        ]);
+        $this->notifications->depositRequested($deposit->fresh(['order', 'gateway']));
+
+        return responseSuccess('mobile_money_requested', 'Payment request received', [
+            'trx' => $deposit->trx,
+            'push_sent' => false,
+            'network' => $network['name'],
+            'phone' => MobileMoney::display($msisdn),
+            'amount' => (float) $deposit->final_amount,
+        ]);
+    }
+
+    /**
+     * The active gateway for a network, or any active mobile-money gateway
+     * when the network has none of its own (Halotel, TTCL).
+     */
+    private function mobileMoneyCurrency(?int $gatewayCode): ?GatewayCurrency
+    {
+        $active = fn () => GatewayCurrency::whereIn('method_code', [1001, 1002, 1003])
+            ->whereHas('gateway', fn ($q) => $q->where('status', 1));
+
+        return ($gatewayCode ? $active()->where('method_code', $gatewayCode)->first() : null)
+            ?? $active()->orderBy('method_code')->first();
     }
 
     /** Submit proof of payment for a manual gateway. */

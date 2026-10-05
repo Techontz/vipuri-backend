@@ -268,6 +268,77 @@ class CheckoutTest extends TestCase
         $this->assertDatabaseHas('orders', ['order_number' => $orderNumber, 'payment_status' => Status::PAYMENT_PENDING]);
     }
 
+    private function placeOrder(array $headers): string
+    {
+        $this->addToCart($headers);
+        $this->chooseRate($headers);
+
+        return $this->withHeaders($headers)
+            ->postJson('/api/v1/checkout', $this->shippingPayload())
+            ->json('data.order.order_number');
+    }
+
+    public function test_mobile_money_needs_only_a_phone_number_and_detects_the_network(): void
+    {
+        $headers = $this->cartHeaders('guest-mm-1');
+        $orderNumber = $this->placeOrder($headers);
+
+        $response = $this->withHeaders($headers)
+            ->postJson("/api/v1/checkout/{$orderNumber}/mobile-money", ['phone' => '0688 123 456'])
+            ->assertOk()
+            ->assertJsonPath('data.network', 'Airtel Money')
+            ->assertJsonPath('data.phone', '+255 688 123 456')
+            ->assertJsonPath('data.push_sent', false);
+
+        $this->assertDatabaseHas('deposits', [
+            'trx' => $response->json('data.trx'),
+            'method_code' => 1003,
+            'status' => Status::PAYMENT_PENDING,
+        ]);
+        $this->assertDatabaseHas('orders', ['order_number' => $orderNumber, 'payment_status' => Status::PAYMENT_PENDING]);
+    }
+
+    public function test_mobile_money_accepts_every_common_number_format(): void
+    {
+        foreach (['0754111001', '754111001', '+255 754 111 001', '255-754-111-001'] as $input) {
+            $this->assertSame('255754111001', \App\Support\MobileMoney::normalise($input), $input);
+        }
+
+        $this->assertNull(\App\Support\MobileMoney::normalise('0222861000'), 'A landline is not a mobile number');
+        $this->assertNull(\App\Support\MobileMoney::normalise('07541'));
+        $this->assertSame('vodacom', \App\Support\MobileMoney::network('255754111001')['key']);
+        $this->assertSame('tigo', \App\Support\MobileMoney::network('255714111001')['key']);
+    }
+
+    public function test_mobile_money_rejects_an_invalid_number_and_a_second_request(): void
+    {
+        $headers = $this->cartHeaders('guest-mm-2');
+        $orderNumber = $this->placeOrder($headers);
+
+        $this->withHeaders($headers)
+            ->postJson("/api/v1/checkout/{$orderNumber}/mobile-money", ['phone' => '12345'])
+            ->assertJsonPath('remark', 'invalid_phone');
+
+        $this->withHeaders($headers)
+            ->postJson("/api/v1/checkout/{$orderNumber}/mobile-money", ['phone' => '0754111001'])
+            ->assertOk();
+
+        $this->withHeaders($headers)
+            ->postJson("/api/v1/checkout/{$orderNumber}/mobile-money", ['phone' => '0754111001'])
+            ->assertJsonPath('remark', 'payment_pending');
+
+        $this->assertSame(1, \App\Models\Deposit::count());
+    }
+
+    public function test_mobile_money_is_private_to_the_order_owner(): void
+    {
+        $orderNumber = $this->placeOrder($this->cartHeaders('guest-mm-3'));
+
+        $this->withHeaders($this->cartHeaders('someone-else'))
+            ->postJson("/api/v1/checkout/{$orderNumber}/mobile-money", ['phone' => '0754111001'])
+            ->assertForbidden();
+    }
+
     public function test_cash_on_delivery_skips_the_payment_step(): void
     {
         $headers = $this->cartHeaders('guest-11');

@@ -7,7 +7,9 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\Encoders\WebpEncoder;
 use Intervention\Image\ImageManager;
+use Intervention\Image\Interfaces\ImageInterface;
 use RuntimeException;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
@@ -18,6 +20,12 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
  * keys flagged `private` in config/vipuri.php live on the `local` disk instead,
  * which has no URL at all — the only way to read one is {@see download()},
  * behind whatever ownership check the caller applies.
+ *
+ * Every image the shop stores comes through here — products, categories,
+ * brands, offers, campaigns, branches, profiles — so this is where the
+ * conversion to WebP belongs. Uploading a JPEG stores a `.webp`, and the
+ * filename written to the database is the one that was actually written to
+ * disk. There is one pipeline; no caller has to know about any of it.
  */
 class FileManager
 {
@@ -34,6 +42,43 @@ class FileManager
         'image/gif' => 'gif',
         'image/webp' => 'webp',
     ];
+
+    /**
+     * Types converted to WebP.
+     *
+     * GIF is deliberately absent. GD decodes only the first frame, so
+     * converting an animated GIF would quietly flatten it into a still — a
+     * worse result than leaving it alone. It is stored as it arrived.
+     *
+     * HEIC/HEIF are not in {@see ALLOWED_IMAGE_MIMES} at all: GD cannot decode
+     * them and Imagick is not installed. In practice this does not bite, since
+     * both iOS and Android photo pickers hand an app JPEG.
+     */
+    private const CONVERT_TO_WEBP = ['image/jpeg', 'image/png', 'image/webp'];
+
+    /**
+     * Quality, chosen for product photography rather than for the smallest
+     * possible file. At 82 a typical part photo is a fraction of the JPEG with
+     * no visible loss on a phone screen; below about 75, flat painted panels
+     * and chrome start to band.
+     */
+    private const WEBP_QUALITY = 82;
+
+    private const WEBP_THUMB_QUALITY = 76;
+
+    /** Nothing needs to be stored larger than this when no size is configured. */
+    private const MAX_UNSIZED_EDGE = 2400;
+
+    /**
+     * Ceilings applied before the file is decoded.
+     *
+     * A few hundred kilobytes of highly compressed PNG can expand to gigabytes
+     * in memory, so the pixel count is checked from the header first — after
+     * that the decode is bounded.
+     */
+    private const MAX_BYTES = 12 * 1024 * 1024;
+
+    private const MAX_PIXELS = 40_000_000;
 
     /** Allowed attachment types, mapped to the extension we store them under. */
     private const ALLOWED_DOC_MIMES = [
@@ -70,12 +115,18 @@ class FileManager
         ?string $oldFilename = null,
         bool $withThumb = false,
     ): string {
-        $extension = self::ALLOWED_IMAGE_MIMES[$file->getMimeType()] ?? null;
+        // Sniffed, never taken from the filename: `payload.php` carrying a
+        // valid PNG body is a PNG, and is stored as one.
+        $mime = (string) $file->getMimeType();
+        $sourceExtension = self::ALLOWED_IMAGE_MIMES[$mime] ?? null;
 
-        if (! $extension) {
+        if (! $sourceExtension) {
             throw new RuntimeException('Only JPG, PNG, GIF or WEBP images are allowed');
         }
 
+        $this->guardUpload($file);
+
+        $extension = $this->storedExtension($pathKey, $mime, $sourceExtension);
         $directory = getFilePath($pathKey);
         $size = getFileSize($pathKey);
         $filename = Str::uuid()->toString() . '.' . $extension;
@@ -83,25 +134,34 @@ class FileManager
         Storage::disk('public')->makeDirectory($directory);
 
         $manager = new ImageManager(new Driver());
-        $image = $manager->decodePath($file->getRealPath());
+
+        // A phone camera writes the sensor's own orientation and an EXIF tag
+        // saying how to turn it. Applying that now means the stored pixels are
+        // the right way up for every client — and the tag is dropped on encode,
+        // so nothing can rotate it a second time.
+        $image = $manager->decodePath($file->getRealPath())->orient();
 
         if ($size) {
             [$width, $height] = array_map('intval', explode('x', $size));
             $image->cover($width, $height);
+        } else {
+            // No configured size: keep the proportions, but do not store a
+            // 6000px original for something displayed at a few hundred.
+            $image->scaleDown(self::MAX_UNSIZED_EDGE, self::MAX_UNSIZED_EDGE);
         }
 
         Storage::disk('public')->put(
             "$directory/$filename",
-            (string) $image->encodeUsingFileExtension($extension, quality: 88),
+            $this->encode($image, $extension, self::WEBP_QUALITY),
         );
 
         if ($withThumb && ($thumbSize = getThumbSize($pathKey))) {
             [$tw, $th] = array_map('intval', explode('x', $thumbSize));
-            $thumb = $manager->decodePath($file->getRealPath())->cover($tw, $th);
+            $thumb = $manager->decodePath($file->getRealPath())->orient()->cover($tw, $th);
 
             Storage::disk('public')->put(
                 "$directory/thumb_$filename",
-                (string) $thumb->encodeUsingFileExtension($extension, quality: 82),
+                $this->encode($thumb, $extension, self::WEBP_THUMB_QUALITY),
             );
         }
 
@@ -110,6 +170,53 @@ class FileManager
         }
 
         return $filename;
+    }
+
+    /**
+     * The extension the file will actually be stored under.
+     *
+     * A path key may opt out with `preserve_format`. `logoIcon` does: it holds
+     * the favicon, and browser support for a WebP favicon is patchy enough
+     * that shrinking one is not worth a missing tab icon.
+     */
+    private function storedExtension(string $pathKey, string $mime, string $sourceExtension): string
+    {
+        if (config("vipuri.file_path.$pathKey.preserve_format", false)) {
+            return $sourceExtension;
+        }
+
+        return in_array($mime, self::CONVERT_TO_WEBP, true) ? 'webp' : $sourceExtension;
+    }
+
+    private function encode(ImageInterface $image, string $extension, int $quality): string
+    {
+        return (string) ($extension === 'webp'
+            ? $image->encode(new WebpEncoder(quality: $quality))
+            : $image->encodeUsingFileExtension($extension, quality: $quality));
+    }
+
+    /**
+     * Reject anything unreasonable before it is decoded.
+     *
+     * Controllers already validate `image` and a max size, but this is the one
+     * place every upload passes through, so the ceiling belongs here too —
+     * a caller that forgets a rule still cannot hand the decoder a bomb.
+     */
+    private function guardUpload(UploadedFile $file): void
+    {
+        if ($file->getSize() > self::MAX_BYTES) {
+            throw new RuntimeException('That image is too large. The limit is 12MB.');
+        }
+
+        $dimensions = @getimagesize($file->getRealPath());
+
+        if ($dimensions === false) {
+            throw new RuntimeException('That file could not be read as an image');
+        }
+
+        if (($dimensions[0] * $dimensions[1]) > self::MAX_PIXELS) {
+            throw new RuntimeException('That image has too many pixels to process');
+        }
     }
 
     /** Store a non-image attachment (ticket attachments, downloadable files). */

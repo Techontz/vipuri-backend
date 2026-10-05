@@ -29,14 +29,33 @@ class FileUploadTest extends TestCase
         $this->files = app(FileManager::class);
     }
 
+    /**
+     * A GIF is used deliberately. JPEG and PNG are both converted to WebP, so
+     * either would come out `.webp` whether the MIME was sniffed or not, and
+     * the assertion would prove nothing. GIF is the one allowed type stored in
+     * its original format, so it still demonstrates that the extension came
+     * from the file's contents rather than from its name.
+     */
     public function test_image_extension_comes_from_the_sniffed_mime_not_the_filename(): void
     {
-        // A genuine PNG, but named as if it were executable.
+        // A genuine GIF, but named as if it were executable.
+        $file = UploadedFile::fake()->image('payload.php.gif')->mimeType('image/gif');
+
+        $stored = $this->files->uploadImage($file, 'adminProfile');
+
+        $this->assertStringEndsWith('.gif', $stored);
+        $this->assertStringNotContainsString('.php', $stored);
+        $this->assertStringNotContainsString('payload', $stored);
+    }
+
+    /** And a convertible type is stored under the extension it was written as. */
+    public function test_a_png_is_stored_as_webp_regardless_of_the_uploaded_name(): void
+    {
         $file = UploadedFile::fake()->image('payload.php.png')->mimeType('image/png');
 
         $stored = $this->files->uploadImage($file, 'adminProfile');
 
-        $this->assertStringEndsWith('.png', $stored);
+        $this->assertStringEndsWith('.webp', $stored);
         $this->assertStringNotContainsString('.php', $stored);
         $this->assertStringNotContainsString('payload', $stored);
     }

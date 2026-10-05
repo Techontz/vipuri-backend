@@ -461,7 +461,9 @@ class SettingController extends Controller
             $values[$field] = $this->files->uploadImage($file, 'frontend', $values[$field] ?? null);
         }
 
-        $row->data_values = json_encode($values);
+        // The model casts data_values to an object, so it encodes on save;
+        // encoding here as well stored a JSON string inside JSON.
+        $row->data_values = $values;
         $row->save();
 
         $this->audit->log('frontend.content_updated', $row, description: "Section $key content updated");
@@ -488,7 +490,9 @@ class SettingController extends Controller
             $values[$field] = $this->files->uploadImage($file, 'frontend', $values[$field] ?? null);
         }
 
-        $row->data_values = json_encode($values);
+        // The model casts data_values to an object, so it encodes on save;
+        // encoding here as well stored a JSON string inside JSON.
+        $row->data_values = $values;
 
         if (! empty($data['slug'])) {
             $row->slug = Str::slug($data['slug']);

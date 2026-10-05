@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Shop;
 
+use App\Constants\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BranchResource;
 use App\Http\Resources\ProductCardResource;
@@ -20,6 +21,7 @@ use App\Services\NotificationService;
 use App\Services\SocialLogin;
 use App\Support\CmsContent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**
@@ -105,6 +107,82 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * Departments for the home page's "Latest products" tabs.
+     *
+     * Top-level categories, each with its newest products (counting products
+     * filed under any of its subcategories). Ordered so the menu leads with
+     * what is moving: departments whose products changed most recently, then
+     * those that sell most (delivered orders), then the rest in their admin
+     * position — so departments with nothing in them yet still fill the menu.
+     */
+    private function latestByCategory(\Closure $withCounts, int $limit = 6): array
+    {
+        $categories = Category::active()->get(['id', 'parent_id', 'name', 'slug', 'icon', 'image', 'position'])->keyBy('id');
+
+        $rootOf = function (int $id) use ($categories): ?int {
+            for ($guard = 0; $guard < 10 && isset($categories[$id]); $guard++) {
+                $parent = $categories[$id]->parent_id;
+                if (! $parent || ! isset($categories[$parent])) {
+                    return $id;
+                }
+                $id = $parent;
+            }
+
+            return null;
+        };
+
+        $active = Product::active()->select('products.id');
+        $updated = Product::active()->pluck('updated_at', 'products.id');
+
+        // Distinct products per department, however many levels they are filed under.
+        $productsOf = [];
+        foreach (DB::table('category_product')->whereIn('product_id', $active)->get(['product_id', 'category_id']) as $row) {
+            if ($root = $rootOf((int) $row->category_id)) {
+                $productsOf[$root][$row->product_id] = true;
+            }
+        }
+
+        $sold = DB::table('order_items')
+            ->join('orders', 'orders.id', '=', 'order_items.order_id')
+            ->where('orders.status', Status::ORDER_DELIVERED)
+            ->groupBy('order_items.product_id')
+            ->selectRaw('order_items.product_id, SUM(order_items.quantity) as qty')
+            ->pluck('qty', 'product_id');
+
+        $ranked = $categories->filter(fn (Category $c) => ! $c->parent_id)
+            ->map(function (Category $c) use ($productsOf, $updated, $sold) {
+                $ids = array_keys($productsOf[$c->id] ?? []);
+
+                return [
+                    'category' => $c,
+                    'ids' => $ids,
+                    'last_activity' => collect($ids)->map(fn ($id) => $updated[$id] ?? null)->filter()->max(),
+                    'sold' => array_sum(array_map(fn ($id) => (int) ($sold[$id] ?? 0), $ids)),
+                ];
+            })
+            // Stocked before empty; then newest activity, best sellers, admin position.
+            ->sort(fn ($a, $b) => (empty($a['ids']) <=> empty($b['ids']))
+                ?: ((string) $b['last_activity'] <=> (string) $a['last_activity'])
+                ?: ($b['sold'] <=> $a['sold'])
+                ?: ($a['category']->position <=> $b['category']->position))
+            ->take($limit)
+            ->values();
+
+        return $ranked->map(fn ($row) => [
+            'id' => $row['category']->id,
+            'name' => $row['category']->name,
+            'slug' => $row['category']->slug,
+            'image' => fileUrl('category', $row['category']->image),
+            'products_count' => count($row['ids']),
+            'products' => $row['ids']
+                ? ProductCardResource::collection(
+                    $withCounts(Product::active()->whereIn('products.id', $row['ids']))->latest('id')->limit(3)->get()
+                )->resolve()
+                : [],
+        ])->all();
+    }
+
     /** Home page: CMS sections plus the product collections they render. */
     public function home()
     {
@@ -117,6 +195,8 @@ class SiteController extends Controller
             'banner', 'about', 'feature', 'highlight', 'testimonial', 'client', 'cta',
             'video_feature', 'popular_categories', 'brand', 'latest_product', 'top_deals',
             'top_selling_product', 'limited_stock', 'special_offer', 'search', 'blog',
+            // The sign-in and register screens read their artwork and copy from here.
+            'login', 'register',
         ];
 
         $sections = CmsContent::sections($contentKeys);
@@ -150,6 +230,7 @@ class SiteController extends Controller
             'latest_products' => ProductCardResource::collection(
                 $withCounts(Product::active())->latest('id')->limit(10)->get()
             ),
+            'latest_by_category' => $this->latestByCategory($withCounts),
             'top_deals' => ProductCardResource::collection(
                 $withCounts(Product::active()->deals())->latest('id')->limit(10)->get()
             ),
@@ -182,14 +263,9 @@ class SiteController extends Controller
     {
         $page = Page::where('slug', $slug)->firstOrFail();
 
-        $keys = collect($page->secs ?? [])->flatMap(fn ($sec) => ["$sec.content", "$sec.element"]);
-
-        $sections = Frontend::whereIn('data_keys', $keys)
-            ->get()
-            ->groupBy('data_keys')
-            ->map(fn ($group, $key) => Str::endsWith($key, '.element')
-                ? $group->map(fn ($item) => ['id' => $item->id, 'slug' => $item->slug] + (array) $item->data_values)->values()
-                : $group->first()->data_values);
+        // Same resolution as the home page, so image fields arrive as
+        // absolute URLs rather than bare filenames.
+        $sections = CmsContent::sections($page->secs ?? []);
 
         return responseSuccess('page', 'Page fetched', [
             'page' => ['name' => $page->name, 'slug' => $page->slug, 'seo' => $page->seo_content],

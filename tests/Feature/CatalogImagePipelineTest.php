@@ -53,9 +53,11 @@ class CatalogImagePipelineTest extends TestCase
         $media = ProductMedia::where('product_id', $product->id)->latest('id')->first();
         $this->assertNotNull($media, 'no media row was written');
 
-        // The filename is generated, never the client's.
+        // The filename is generated, never the client's — and a JPEG is stored
+        // as WebP, so the extension follows what was written rather than what
+        // arrived. See WebpConversionTest for the bytes themselves.
         $this->assertStringNotContainsString('part', $media->path);
-        $this->assertStringEndsWith('.jpg', $media->path);
+        $this->assertStringEndsWith('.webp', $media->path);
 
         // The bytes really landed on the public disk.
         Storage::disk('public')->assertExists(getFilePath('product') . '/' . $media->path);

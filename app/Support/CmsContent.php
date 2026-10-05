@@ -148,7 +148,9 @@ class CmsContent
         // Most CMS images live under the section's folder inside the frontend
         // directory. A few sections — maintenance is the one in the source
         // system — have a directory of their own in the file-path map.
-        $candidates = ["assets/images/frontend/$section/$filename"];
+        // Uploads through the admin API are stored flat in the frontend
+        // directory, so that is checked as well.
+        $candidates = ["assets/images/frontend/$section/$filename", "assets/images/frontend/$filename"];
 
         if ($configured = config("vipuri.file_path.$section.path")) {
             $candidates[] = "$configured/$filename";

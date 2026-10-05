@@ -58,6 +58,7 @@ class Roles
             'product.create',
             'product.update',
             'product.status',
+            'product.delete',
             'product.ai_generate',
             'category.manage',
             'brand.manage',

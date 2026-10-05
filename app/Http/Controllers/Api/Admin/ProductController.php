@@ -119,7 +119,41 @@ class ProductController extends Controller
                 ['value' => Status::LOW_STOCK_DISABLE_BUY_BUTTON, 'label' => 'Disable buy button'],
                 ['value' => Status::LOW_STOCK_UNPUBLISH_PRODUCT, 'label' => 'Unpublish product'],
             ],
+            'fitment' => $this->fitmentSuggestions(),
         ]);
+    }
+
+    /**
+     * Values already used for vehicle fitment, for autocomplete.
+     *
+     * Fitment is four free-text columns on `products` — there is no vehicle
+     * table, and inventing one would be a second source of truth for data the
+     * catalogue already holds. Offering what has been typed before is what
+     * stops "Land Cruiser", "landcruiser" and "L/Cruiser" becoming three
+     * different vehicles, and it is what makes the field usable on a phone.
+     *
+     * Free text is still accepted; this only suggests.
+     */
+    private function fitmentSuggestions(): array
+    {
+        $distinct = function (string $column): array {
+            return Product::query()
+                ->whereNotNull($column)
+                ->where($column, '!=', '')
+                ->distinct()
+                ->orderBy($column)
+                ->pluck($column)
+                ->map(fn ($value) => (string) $value)
+                ->values()
+                ->all();
+        };
+
+        return [
+            'models' => $distinct('vehicle_model'),
+            'engines' => $distinct('vehicle_engine'),
+            'engine_types' => $distinct('vehicle_engine_type'),
+            'years' => array_map('intval', $distinct('vehicle_year')),
+        ];
     }
 
     public function show(int $id)
@@ -183,6 +217,41 @@ class ProductController extends Controller
         return responseSuccess('product_status_changed', 'Product status updated', [
             'status' => (bool) $product->status,
         ]);
+    }
+
+    /**
+     * Permanently remove a product that was never traded.
+     *
+     * order_items and stock_transfer_items cascade on product delete, so
+     * deleting a product that was ever ordered or transferred would silently
+     * rewrite order history and stock records. Those products are refused and
+     * should be unpublished instead.
+     */
+    public function destroy(int $id)
+    {
+        $product = Product::with('media')->findOrFail($id);
+
+        $traded = $product->orderItems()->exists()
+            || DB::table('stock_transfer_items')->where('product_id', $product->id)->exists();
+
+        if ($traded) {
+            return responseError('product_in_use', [
+                'This product appears on orders or stock transfers. Unpublish it instead of deleting.',
+            ]);
+        }
+
+        $name = $product->name;
+
+        DB::transaction(function () use ($product) {
+            foreach ($product->media as $media) {
+                $this->files->removeImage('product', $media->path);
+            }
+            $product->delete();
+        });
+
+        $this->audit->log('product.deleted', description: "Product $name deleted");
+
+        return responseSuccess('product_deleted', 'Product deleted');
     }
 
     /** Product search box used by up-sell / cross-sell / grouped pickers. */
